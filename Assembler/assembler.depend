@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1467672962 source:c:\users\nerox\desktop\assembler\main.c
+	<stdio.h>
+	<stdlib.h>
+

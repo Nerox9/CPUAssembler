@@ -1,0 +1,2489 @@
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 1
+
+
+   1              		.file	"main.c"
+   2              		.text
+   3              	Ltext0:
+   4              		.cfi_sections	.debug_frame
+   6              		.section .rdata,"dr"
+   7              		.align 4
+   8              	LC0:
+   9 0000 456E7465 		.ascii "Enter the path of assembly file:\0"
+   9      72207468 
+   9      65207061 
+   9      7468206F 
+   9      66206173 
+  10              	LC1:
+  11 0021 257300   		.ascii "%s\0"
+  12              	LC2:
+  13 0024 45584954 		.ascii "EXIT\0"
+  13      00
+  14              	LC3:
+  15 0029 65786974 		.ascii "exit\0"
+  15      00
+  16              	LC4:
+  17 002e 7200     		.ascii "r\0"
+  18              	LC5:
+  19 0030 7700     		.ascii "w\0"
+  20              	LC6:
+  21 0032 6F757470 		.ascii "output\0"
+  21      757400
+  22 0039 000000   		.align 4
+  23              	LC7:
+  24 003c 4572726F 		.ascii "Error while opening the assembly file.\12\0"
+  24      72207768 
+  24      696C6520 
+  24      6F70656E 
+  24      696E6720 
+  25              		.align 4
+  26              	LC8:
+  27 0064 4572726F 		.ascii "Error while creating the binary file.\12\0"
+  27      72207768 
+  27      696C6520 
+  27      63726561 
+  27      74696E67 
+  28              	LC9:
+  29 008b 76322E30 		.ascii "v2.0 raw\12\0"
+  29      20726177 
+  29      0A00
+  30              	LC10:
+  31 0095 25732025 		.ascii "%s %s %s\12\0"
+  31      73202573 
+  31      0A00
+  32              	LC11:
+  33 009f 436F6D70 		.ascii "Compile is SUCCESSFUL!\0"
+  33      696C6520 
+  33      69732053 
+  33      55434345 
+  33      53534655 
+  34              	LC12:
+  35 00b6 4F757470 		.ascii "Output file: %s\\output\12\12\0"
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 2
+
+
+  35      75742066 
+  35      696C653A 
+  35      2025735C 
+  35      6F757470 
+  36              		.text
+  37              		.globl	_main
+  39              	_main:
+  40              	LFB6:
+  41              		.file 1 "C:/Users/Nerox/Desktop/assembler/main.c"
+   1:C:/Users/Nerox/Desktop/assembler\main.c **** #include <stdio.h>
+   2:C:/Users/Nerox/Desktop/assembler\main.c **** #include <stdlib.h>
+   3:C:/Users/Nerox/Desktop/assembler\main.c **** 
+   4:C:/Users/Nerox/Desktop/assembler\main.c **** void findHex(char mnemonic[],char operand1[],char operand2[], FILE *ptrOFile);
+   5:C:/Users/Nerox/Desktop/assembler\main.c **** 
+   6:C:/Users/Nerox/Desktop/assembler\main.c **** int main()
+   7:C:/Users/Nerox/Desktop/assembler\main.c **** {
+  42              		.loc 1 7 0
+  43              		.cfi_startproc
+  44 0000 55       		pushl	%ebp
+  45              		.cfi_def_cfa_offset 8
+  46              		.cfi_offset 5, -8
+  47 0001 89E5     		movl	%esp, %ebp
+  48              		.cfi_def_cfa_register 5
+  49 0003 83E4F0   		andl	$-16, %esp
+  50 0006 B8702B00 		movl	$11120, %eax
+  50      00
+  51 000b E8000000 		call	___chkstk_ms
+  51      00
+  52 0010 29C4     		subl	%eax, %esp
+  53              		.loc 1 7 0
+  54 0012 E8000000 		call	___main
+  54      00
+   8:C:/Users/Nerox/Desktop/assembler\main.c **** 
+   9:C:/Users/Nerox/Desktop/assembler\main.c ****     char ch,content[10000],fileaddress[25]; // ch is char buffer, content array is ascii buffer, fi
+  10:C:/Users/Nerox/Desktop/assembler\main.c ****     char mnem[10],op1[10],op2[10];
+  11:C:/Users/Nerox/Desktop/assembler\main.c ****     int i = 0, counter =0, opcntr = 0, state = 0; //i is char counter, bin array is binary buffer
+  55              		.loc 1 11 0
+  56 0017 C784246C 		movl	$0, 11116(%esp)
+  56      2B000000 
+  56      000000
+  57 0022 C7842468 		movl	$0, 11112(%esp)
+  57      2B000000 
+  57      000000
+  58 002d C7842464 		movl	$0, 11108(%esp)
+  58      2B000000 
+  58      000000
+  59 0038 C7842460 		movl	$0, 11104(%esp)
+  59      2B000000 
+  59      000000
+  60              	L2:
+  12:C:/Users/Nerox/Desktop/assembler\main.c **** loop:
+  13:C:/Users/Nerox/Desktop/assembler\main.c ****     printf("Enter the path of assembly file:\n");
+  61              		.loc 1 13 0
+  62 0043 C7042400 		movl	$LC0, (%esp)
+  62      000000
+  63 004a E8000000 		call	_puts
+  63      00
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 3
+
+
+  14:C:/Users/Nerox/Desktop/assembler\main.c ****     scanf("%s",fileaddress);
+  64              		.loc 1 14 0
+  65 004f 8D84242E 		leal	1070(%esp), %eax
+  65      040000
+  66 0056 89442404 		movl	%eax, 4(%esp)
+  67 005a C7042421 		movl	$LC1, (%esp)
+  67      000000
+  68 0061 E8000000 		call	_scanf
+  68      00
+  15:C:/Users/Nerox/Desktop/assembler\main.c ****     printf("\n");
+  69              		.loc 1 15 0
+  70 0066 C704240A 		movl	$10, (%esp)
+  70      000000
+  71 006d E8000000 		call	_putchar
+  71      00
+  16:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  17:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(fileaddress,"EXIT") == 0 || strcmp(fileaddress,"exit") == 0 )
+  72              		.loc 1 17 0
+  73 0072 C7442404 		movl	$LC2, 4(%esp)
+  73      24000000 
+  74 007a 8D84242E 		leal	1070(%esp), %eax
+  74      040000
+  75 0081 890424   		movl	%eax, (%esp)
+  76 0084 E8000000 		call	_strcmp
+  76      00
+  77 0089 85C0     		testl	%eax, %eax
+  78 008b 741B     		je	L3
+  79              		.loc 1 17 0 is_stmt 0 discriminator 1
+  80 008d C7442404 		movl	$LC3, 4(%esp)
+  80      29000000 
+  81 0095 8D84242E 		leal	1070(%esp), %eax
+  81      040000
+  82 009c 890424   		movl	%eax, (%esp)
+  83 009f E8000000 		call	_strcmp
+  83      00
+  84 00a4 85C0     		testl	%eax, %eax
+  85 00a6 750A     		jne	L4
+  86              	L3:
+  18:C:/Users/Nerox/Desktop/assembler\main.c ****         return 0;
+  87              		.loc 1 18 0 is_stmt 1
+  88 00a8 B8000000 		movl	$0, %eax
+  88      00
+  89 00ad E99A0300 		jmp	L21
+  89      00
+  90              	L4:
+  19:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  20:C:/Users/Nerox/Desktop/assembler\main.c ****     FILE *ptrFile; //input asm file
+  21:C:/Users/Nerox/Desktop/assembler\main.c ****     FILE *ptrOFile;//output bin file
+  22:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  23:C:/Users/Nerox/Desktop/assembler\main.c ****     ptrFile = fopen(fileaddress,"r");
+  91              		.loc 1 23 0
+  92 00b2 C7442404 		movl	$LC4, 4(%esp)
+  92      2E000000 
+  93 00ba 8D84242E 		leal	1070(%esp), %eax
+  93      040000
+  94 00c1 890424   		movl	%eax, (%esp)
+  95 00c4 E8000000 		call	_fopen
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 4
+
+
+  95      00
+  96 00c9 8984245C 		movl	%eax, 11100(%esp)
+  96      2B0000
+  24:C:/Users/Nerox/Desktop/assembler\main.c ****     ptrOFile = fopen("output","w");
+  97              		.loc 1 24 0
+  98 00d0 C7442404 		movl	$LC5, 4(%esp)
+  98      30000000 
+  99 00d8 C7042432 		movl	$LC6, (%esp)
+  99      000000
+ 100 00df E8000000 		call	_fopen
+ 100      00
+ 101 00e4 89842458 		movl	%eax, 11096(%esp)
+ 101      2B0000
+  25:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  26:C:/Users/Nerox/Desktop/assembler\main.c ****     if(ptrFile==NULL)
+ 102              		.loc 1 26 0
+ 103 00eb 83BC245C 		cmpl	$0, 11100(%esp)
+ 103      2B000000 
+ 104 00f3 7518     		jne	L6
+  27:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+  28:C:/Users/Nerox/Desktop/assembler\main.c ****         perror("Error while opening the assembly file.\n");
+ 105              		.loc 1 28 0
+ 106 00f5 C704243C 		movl	$LC7, (%esp)
+ 106      000000
+ 107 00fc E8000000 		call	_perror
+ 107      00
+  29:C:/Users/Nerox/Desktop/assembler\main.c ****         exit(EXIT_FAILURE);
+ 108              		.loc 1 29 0
+ 109 0101 C7042401 		movl	$1, (%esp)
+ 109      000000
+ 110 0108 E8000000 		call	_exit
+ 110      00
+ 111              	L6:
+  30:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+  31:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  32:C:/Users/Nerox/Desktop/assembler\main.c ****     if(ptrOFile==NULL)
+ 112              		.loc 1 32 0
+ 113 010d 83BC2458 		cmpl	$0, 11096(%esp)
+ 113      2B000000 
+ 114 0115 7518     		jne	L7
+  33:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+  34:C:/Users/Nerox/Desktop/assembler\main.c ****         perror("Error while creating the binary file.\n");
+ 115              		.loc 1 34 0
+ 116 0117 C7042464 		movl	$LC8, (%esp)
+ 116      000000
+ 117 011e E8000000 		call	_perror
+ 117      00
+  35:C:/Users/Nerox/Desktop/assembler\main.c ****         exit(EXIT_FAILURE);
+ 118              		.loc 1 35 0
+ 119 0123 C7042401 		movl	$1, (%esp)
+ 119      000000
+ 120 012a E8000000 		call	_exit
+ 120      00
+ 121              	L7:
+  36:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+  37:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  38:C:/Users/Nerox/Desktop/assembler\main.c **** 
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 5
+
+
+  39:C:/Users/Nerox/Desktop/assembler\main.c ****     while( ( ch = fgetc (ptrFile) ) != EOF )
+ 122              		.loc 1 39 0
+ 123 012f EB22     		jmp	L8
+ 124              	L9:
+  40:C:/Users/Nerox/Desktop/assembler\main.c ****      {
+  41:C:/Users/Nerox/Desktop/assembler\main.c ****          content[i]=ch; //each char to array char buffer
+ 125              		.loc 1 41 0
+ 126 0131 8D942447 		leal	1095(%esp), %edx
+ 126      040000
+ 127 0138 8B84246C 		movl	11116(%esp), %eax
+ 127      2B0000
+ 128 013f 01C2     		addl	%eax, %edx
+ 129 0141 0FB68424 		movzbl	11095(%esp), %eax
+ 129      572B0000 
+ 130 0149 8802     		movb	%al, (%edx)
+  42:C:/Users/Nerox/Desktop/assembler\main.c ****          i++;
+ 131              		.loc 1 42 0
+ 132 014b 8384246C 		addl	$1, 11116(%esp)
+ 132      2B000001 
+ 133              	L8:
+  39:C:/Users/Nerox/Desktop/assembler\main.c ****     while( ( ch = fgetc (ptrFile) ) != EOF )
+ 134              		.loc 1 39 0 discriminator 1
+ 135 0153 8B84245C 		movl	11100(%esp), %eax
+ 135      2B0000
+ 136 015a 890424   		movl	%eax, (%esp)
+ 137 015d E8000000 		call	_fgetc
+ 137      00
+ 138 0162 88842457 		movb	%al, 11095(%esp)
+ 138      2B0000
+ 139 0169 80BC2457 		cmpb	$-1, 11095(%esp)
+ 139      2B0000FF 
+ 140 0171 75BE     		jne	L9
+  43:C:/Users/Nerox/Desktop/assembler\main.c ****      }
+  44:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  45:C:/Users/Nerox/Desktop/assembler\main.c ****     printf("%s\n",content);
+ 141              		.loc 1 45 0
+ 142 0173 8D842447 		leal	1095(%esp), %eax
+ 142      040000
+ 143 017a 890424   		movl	%eax, (%esp)
+ 144 017d E8000000 		call	_puts
+ 144      00
+  46:C:/Users/Nerox/Desktop/assembler\main.c ****     fprintf(ptrOFile,"v2.0 raw\n");
+ 145              		.loc 1 46 0
+ 146 0182 8B842458 		movl	11096(%esp), %eax
+ 146      2B0000
+ 147 0189 8944240C 		movl	%eax, 12(%esp)
+ 148 018d C7442408 		movl	$9, 8(%esp)
+ 148      09000000 
+ 149 0195 C7442404 		movl	$1, 4(%esp)
+ 149      01000000 
+ 150 019d C704248B 		movl	$LC9, (%esp)
+ 150      000000
+ 151 01a4 E8000000 		call	_fwrite
+ 151      00
+  47:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  48:C:/Users/Nerox/Desktop/assembler\main.c ****     while( i >= counter )
+ 152              		.loc 1 48 0
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 6
+
+
+ 153 01a9 E9330200 		jmp	L10
+ 153      00
+ 154              	L20:
+  49:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+  50:C:/Users/Nerox/Desktop/assembler\main.c ****         if ( counter == i )
+ 155              		.loc 1 50 0
+ 156 01ae 8B842468 		movl	11112(%esp), %eax
+ 156      2B0000
+ 157 01b5 3B84246C 		cmpl	11116(%esp), %eax
+ 157      2B0000
+ 158 01bc 755D     		jne	L11
+  51:C:/Users/Nerox/Desktop/assembler\main.c ****         {
+  52:C:/Users/Nerox/Desktop/assembler\main.c ****             findHex(mnem,op1,op2,ptrOFile);
+ 159              		.loc 1 52 0
+ 160 01be 8B842458 		movl	11096(%esp), %eax
+ 160      2B0000
+ 161 01c5 8944240C 		movl	%eax, 12(%esp)
+ 162 01c9 8D842410 		leal	1040(%esp), %eax
+ 162      040000
+ 163 01d0 89442408 		movl	%eax, 8(%esp)
+ 164 01d4 8D84241A 		leal	1050(%esp), %eax
+ 164      040000
+ 165 01db 89442404 		movl	%eax, 4(%esp)
+ 166 01df 8D842424 		leal	1060(%esp), %eax
+ 166      040000
+ 167 01e6 890424   		movl	%eax, (%esp)
+ 168 01e9 E8600200 		call	_findHex
+ 168      00
+  53:C:/Users/Nerox/Desktop/assembler\main.c ****             printf("%s %s %s\n",mnem,op1,op2);
+ 169              		.loc 1 53 0
+ 170 01ee 8D842410 		leal	1040(%esp), %eax
+ 170      040000
+ 171 01f5 8944240C 		movl	%eax, 12(%esp)
+ 172 01f9 8D84241A 		leal	1050(%esp), %eax
+ 172      040000
+ 173 0200 89442408 		movl	%eax, 8(%esp)
+ 174 0204 8D842424 		leal	1060(%esp), %eax
+ 174      040000
+ 175 020b 89442404 		movl	%eax, 4(%esp)
+ 176 020f C7042495 		movl	$LC10, (%esp)
+ 176      000000
+ 177 0216 E8000000 		call	_printf
+ 177      00
+ 178              	L11:
+  54:C:/Users/Nerox/Desktop/assembler\main.c ****         }
+  55:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  56:C:/Users/Nerox/Desktop/assembler\main.c ****         if( content[counter] == '\t' || content[counter] == ' ' || content[counter] == ',' || conte
+ 179              		.loc 1 56 0
+ 180 021b 8D942447 		leal	1095(%esp), %edx
+ 180      040000
+ 181 0222 8B842468 		movl	11112(%esp), %eax
+ 181      2B0000
+ 182 0229 01D0     		addl	%edx, %eax
+ 183 022b 0FB600   		movzbl	(%eax), %eax
+ 184 022e 3C09     		cmpb	$9, %al
+ 185 0230 7449     		je	L12
+ 186              		.loc 1 56 0 is_stmt 0 discriminator 1
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 7
+
+
+ 187 0232 8D942447 		leal	1095(%esp), %edx
+ 187      040000
+ 188 0239 8B842468 		movl	11112(%esp), %eax
+ 188      2B0000
+ 189 0240 01D0     		addl	%edx, %eax
+ 190 0242 0FB600   		movzbl	(%eax), %eax
+ 191 0245 3C20     		cmpb	$32, %al
+ 192 0247 7432     		je	L12
+ 193 0249 8D942447 		leal	1095(%esp), %edx
+ 193      040000
+ 194 0250 8B842468 		movl	11112(%esp), %eax
+ 194      2B0000
+ 195 0257 01D0     		addl	%edx, %eax
+ 196 0259 0FB600   		movzbl	(%eax), %eax
+ 197 025c 3C2C     		cmpb	$44, %al
+ 198 025e 741B     		je	L12
+ 199 0260 8D942447 		leal	1095(%esp), %edx
+ 199      040000
+ 200 0267 8B842468 		movl	11112(%esp), %eax
+ 200      2B0000
+ 201 026e 01D0     		addl	%edx, %eax
+ 202 0270 0FB600   		movzbl	(%eax), %eax
+ 203 0273 3C0A     		cmpb	$10, %al
+ 204 0275 0F85CB00 		jne	L13
+ 204      0000
+ 205              	L12:
+  57:C:/Users/Nerox/Desktop/assembler\main.c ****          {
+  58:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  59:C:/Users/Nerox/Desktop/assembler\main.c ****              state++;
+ 206              		.loc 1 59 0 is_stmt 1
+ 207 027b 83842460 		addl	$1, 11104(%esp)
+ 207      2B000001 
+  60:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  61:C:/Users/Nerox/Desktop/assembler\main.c ****              if( content[counter] == '\n' )
+ 208              		.loc 1 61 0
+ 209 0283 8D942447 		leal	1095(%esp), %edx
+ 209      040000
+ 210 028a 8B842468 		movl	11112(%esp), %eax
+ 210      2B0000
+ 211 0291 01D0     		addl	%edx, %eax
+ 212 0293 0FB600   		movzbl	(%eax), %eax
+ 213 0296 3C0A     		cmpb	$10, %al
+ 214 0298 0F858000 		jne	L14
+ 214      0000
+  62:C:/Users/Nerox/Desktop/assembler\main.c ****                 {
+  63:C:/Users/Nerox/Desktop/assembler\main.c ****                     findHex(mnem,op1,op2,ptrOFile);
+ 215              		.loc 1 63 0
+ 216 029e 8B842458 		movl	11096(%esp), %eax
+ 216      2B0000
+ 217 02a5 8944240C 		movl	%eax, 12(%esp)
+ 218 02a9 8D842410 		leal	1040(%esp), %eax
+ 218      040000
+ 219 02b0 89442408 		movl	%eax, 8(%esp)
+ 220 02b4 8D84241A 		leal	1050(%esp), %eax
+ 220      040000
+ 221 02bb 89442404 		movl	%eax, 4(%esp)
+ 222 02bf 8D842424 		leal	1060(%esp), %eax
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 8
+
+
+ 222      040000
+ 223 02c6 890424   		movl	%eax, (%esp)
+ 224 02c9 E8800100 		call	_findHex
+ 224      00
+  64:C:/Users/Nerox/Desktop/assembler\main.c ****                     printf("%s %s %s\n",mnem,op1,op2);
+ 225              		.loc 1 64 0
+ 226 02ce 8D842410 		leal	1040(%esp), %eax
+ 226      040000
+ 227 02d5 8944240C 		movl	%eax, 12(%esp)
+ 228 02d9 8D84241A 		leal	1050(%esp), %eax
+ 228      040000
+ 229 02e0 89442408 		movl	%eax, 8(%esp)
+ 230 02e4 8D842424 		leal	1060(%esp), %eax
+ 230      040000
+ 231 02eb 89442404 		movl	%eax, 4(%esp)
+ 232 02ef C7042495 		movl	$LC10, (%esp)
+ 232      000000
+ 233 02f6 E8000000 		call	_printf
+ 233      00
+  65:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  66:C:/Users/Nerox/Desktop/assembler\main.c ****                     mnem[0] = '\0';
+ 234              		.loc 1 66 0
+ 235 02fb C6842424 		movb	$0, 1060(%esp)
+ 235      04000000 
+  67:C:/Users/Nerox/Desktop/assembler\main.c ****                     op1[0] = '\0';
+ 236              		.loc 1 67 0
+ 237 0303 C684241A 		movb	$0, 1050(%esp)
+ 237      04000000 
+  68:C:/Users/Nerox/Desktop/assembler\main.c ****                     op2[0] = '\0';
+ 238              		.loc 1 68 0
+ 239 030b C6842410 		movb	$0, 1040(%esp)
+ 239      04000000 
+  69:C:/Users/Nerox/Desktop/assembler\main.c ****                     state = 0;
+ 240              		.loc 1 69 0
+ 241 0313 C7842460 		movl	$0, 11104(%esp)
+ 241      2B000000 
+ 241      000000
+ 242              	L14:
+  70:C:/Users/Nerox/Desktop/assembler\main.c ****                 }
+  71:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  72:C:/Users/Nerox/Desktop/assembler\main.c ****              opcntr=0;
+ 243              		.loc 1 72 0
+ 244 031e C7842464 		movl	$0, 11108(%esp)
+ 244      2B000000 
+ 244      000000
+  73:C:/Users/Nerox/Desktop/assembler\main.c ****              counter++;
+ 245              		.loc 1 73 0
+ 246 0329 83842468 		addl	$1, 11112(%esp)
+ 246      2B000001 
+  74:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  75:C:/Users/Nerox/Desktop/assembler\main.c ****              if( state > 2 )
+ 247              		.loc 1 75 0
+ 248 0331 83BC2460 		cmpl	$2, 11104(%esp)
+ 248      2B000002 
+ 249 0339 7E0B     		jle	L13
+  76:C:/Users/Nerox/Desktop/assembler\main.c ****                 state = 0;
+ 250              		.loc 1 76 0
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 9
+
+
+ 251 033b C7842460 		movl	$0, 11104(%esp)
+ 251      2B000000 
+ 251      000000
+ 252              	L13:
+  77:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  78:C:/Users/Nerox/Desktop/assembler\main.c ****          }
+  79:C:/Users/Nerox/Desktop/assembler\main.c ****          switch (state)
+ 253              		.loc 1 79 0
+ 254 0346 8B842460 		movl	11104(%esp), %eax
+ 254      2B0000
+ 255 034d 83F801   		cmpl	$1, %eax
+ 256 0350 7432     		je	L16
+ 257 0352 83F802   		cmpl	$2, %eax
+ 258 0355 7454     		je	L17
+ 259 0357 85C0     		testl	%eax, %eax
+ 260 0359 7402     		je	L18
+  80:C:/Users/Nerox/Desktop/assembler\main.c ****          {
+  81:C:/Users/Nerox/Desktop/assembler\main.c ****          case 0 :
+  82:C:/Users/Nerox/Desktop/assembler\main.c ****             mnem[opcntr] = content[counter];
+  83:C:/Users/Nerox/Desktop/assembler\main.c ****             break;
+  84:C:/Users/Nerox/Desktop/assembler\main.c ****          case 1 :
+  85:C:/Users/Nerox/Desktop/assembler\main.c ****             op1[opcntr] = content[counter];
+  86:C:/Users/Nerox/Desktop/assembler\main.c ****             break;
+  87:C:/Users/Nerox/Desktop/assembler\main.c ****          case 2 :
+  88:C:/Users/Nerox/Desktop/assembler\main.c ****             op2[opcntr] = content[counter];
+  89:C:/Users/Nerox/Desktop/assembler\main.c ****             break;
+  90:C:/Users/Nerox/Desktop/assembler\main.c ****          default :
+  91:C:/Users/Nerox/Desktop/assembler\main.c ****             break;
+ 261              		.loc 1 91 0
+ 262 035b EB74     		jmp	L19
+ 263              	L18:
+  82:C:/Users/Nerox/Desktop/assembler\main.c ****             mnem[opcntr] = content[counter];
+ 264              		.loc 1 82 0
+ 265 035d 8D942447 		leal	1095(%esp), %edx
+ 265      040000
+ 266 0364 8B842468 		movl	11112(%esp), %eax
+ 266      2B0000
+ 267 036b 01D0     		addl	%edx, %eax
+ 268 036d 0FB600   		movzbl	(%eax), %eax
+ 269 0370 8D8C2424 		leal	1060(%esp), %ecx
+ 269      040000
+ 270 0377 8B942464 		movl	11108(%esp), %edx
+ 270      2B0000
+ 271 037e 01CA     		addl	%ecx, %edx
+ 272 0380 8802     		movb	%al, (%edx)
+  83:C:/Users/Nerox/Desktop/assembler\main.c ****             break;
+ 273              		.loc 1 83 0
+ 274 0382 EB4D     		jmp	L19
+ 275              	L16:
+  85:C:/Users/Nerox/Desktop/assembler\main.c ****             op1[opcntr] = content[counter];
+ 276              		.loc 1 85 0
+ 277 0384 8D942447 		leal	1095(%esp), %edx
+ 277      040000
+ 278 038b 8B842468 		movl	11112(%esp), %eax
+ 278      2B0000
+ 279 0392 01D0     		addl	%edx, %eax
+ 280 0394 0FB600   		movzbl	(%eax), %eax
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 10
+
+
+ 281 0397 8D8C241A 		leal	1050(%esp), %ecx
+ 281      040000
+ 282 039e 8B942464 		movl	11108(%esp), %edx
+ 282      2B0000
+ 283 03a5 01CA     		addl	%ecx, %edx
+ 284 03a7 8802     		movb	%al, (%edx)
+  86:C:/Users/Nerox/Desktop/assembler\main.c ****             break;
+ 285              		.loc 1 86 0
+ 286 03a9 EB26     		jmp	L19
+ 287              	L17:
+  88:C:/Users/Nerox/Desktop/assembler\main.c ****             op2[opcntr] = content[counter];
+ 288              		.loc 1 88 0
+ 289 03ab 8D942447 		leal	1095(%esp), %edx
+ 289      040000
+ 290 03b2 8B842468 		movl	11112(%esp), %eax
+ 290      2B0000
+ 291 03b9 01D0     		addl	%edx, %eax
+ 292 03bb 0FB600   		movzbl	(%eax), %eax
+ 293 03be 8D8C2410 		leal	1040(%esp), %ecx
+ 293      040000
+ 294 03c5 8B942464 		movl	11108(%esp), %edx
+ 294      2B0000
+ 295 03cc 01CA     		addl	%ecx, %edx
+ 296 03ce 8802     		movb	%al, (%edx)
+  89:C:/Users/Nerox/Desktop/assembler\main.c ****             break;
+ 297              		.loc 1 89 0
+ 298 03d0 90       		nop
+ 299              	L19:
+  92:C:/Users/Nerox/Desktop/assembler\main.c ****          }
+  93:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  94:C:/Users/Nerox/Desktop/assembler\main.c ****          opcntr++;
+ 300              		.loc 1 94 0
+ 301 03d1 83842464 		addl	$1, 11108(%esp)
+ 301      2B000001 
+  95:C:/Users/Nerox/Desktop/assembler\main.c ****          counter++;
+ 302              		.loc 1 95 0
+ 303 03d9 83842468 		addl	$1, 11112(%esp)
+ 303      2B000001 
+ 304              	L10:
+  48:C:/Users/Nerox/Desktop/assembler\main.c ****     while( i >= counter )
+ 305              		.loc 1 48 0 discriminator 1
+ 306 03e1 8B84246C 		movl	11116(%esp), %eax
+ 306      2B0000
+ 307 03e8 3B842468 		cmpl	11112(%esp), %eax
+ 307      2B0000
+ 308 03ef 0F8DB9FD 		jge	L20
+ 308      FFFF
+  96:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+  97:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  98:C:/Users/Nerox/Desktop/assembler\main.c **** 
+  99:C:/Users/Nerox/Desktop/assembler\main.c ****     fclose(ptrOFile);
+ 309              		.loc 1 99 0
+ 310 03f5 8B842458 		movl	11096(%esp), %eax
+ 310      2B0000
+ 311 03fc 890424   		movl	%eax, (%esp)
+ 312 03ff E8000000 		call	_fclose
+ 312      00
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 11
+
+
+ 100:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 101:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 102:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 103:C:/Users/Nerox/Desktop/assembler\main.c ****     fclose(ptrFile);
+ 313              		.loc 1 103 0
+ 314 0404 8B84245C 		movl	11100(%esp), %eax
+ 314      2B0000
+ 315 040b 890424   		movl	%eax, (%esp)
+ 316 040e E8000000 		call	_fclose
+ 316      00
+ 104:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 105:C:/Users/Nerox/Desktop/assembler\main.c ****     printf("Compile is SUCCESSFUL!\n");
+ 317              		.loc 1 105 0
+ 318 0413 C704249F 		movl	$LC11, (%esp)
+ 318      000000
+ 319 041a E8000000 		call	_puts
+ 319      00
+ 106:C:/Users/Nerox/Desktop/assembler\main.c ****     char cwd[1024];
+ 107:C:/Users/Nerox/Desktop/assembler\main.c ****     getcwd(cwd, sizeof(cwd));
+ 320              		.loc 1 107 0
+ 321 041f C7442404 		movl	$1024, 4(%esp)
+ 321      00040000 
+ 322 0427 8D442410 		leal	16(%esp), %eax
+ 323 042b 890424   		movl	%eax, (%esp)
+ 324 042e E8000000 		call	_getcwd
+ 324      00
+ 108:C:/Users/Nerox/Desktop/assembler\main.c ****     printf("Output file: %s\\output\n\n",cwd);
+ 325              		.loc 1 108 0
+ 326 0433 8D442410 		leal	16(%esp), %eax
+ 327 0437 89442404 		movl	%eax, 4(%esp)
+ 328 043b C70424B6 		movl	$LC12, (%esp)
+ 328      000000
+ 329 0442 E8000000 		call	_printf
+ 329      00
+ 109:C:/Users/Nerox/Desktop/assembler\main.c ****     goto loop;
+ 330              		.loc 1 109 0
+ 331 0447 E9F7FBFF 		jmp	L2
+ 331      FF
+ 332              	L21:
+ 110:C:/Users/Nerox/Desktop/assembler\main.c **** }
+ 333              		.loc 1 110 0
+ 334 044c C9       		leave
+ 335              		.cfi_restore 5
+ 336              		.cfi_def_cfa 4, 4
+ 337 044d C3       		ret
+ 338              		.cfi_endproc
+ 339              	LFE6:
+ 340              		.section .rdata,"dr"
+ 341              	LC13:
+ 342 00cf 41444400 		.ascii "ADD\0"
+ 343              	LC14:
+ 344 00d3 30312000 		.ascii "01 \0"
+ 345              	LC15:
+ 346 00d7 30332000 		.ascii "03 \0"
+ 347              	LC16:
+ 348 00db 31352025 		.ascii "15 %s 01 \0"
+ 348      73203031 
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 12
+
+
+ 348      2000
+ 349              	LC17:
+ 350 00e5 30322000 		.ascii "02 \0"
+ 351              	LC18:
+ 352 00e9 30352000 		.ascii "05 \0"
+ 353              	LC19:
+ 354 00ed 31342025 		.ascii "14 %s 02 \0"
+ 354      73203032 
+ 354      2000
+ 355              	LC20:
+ 356 00f7 30342000 		.ascii "04 \0"
+ 357              	LC21:
+ 358 00fb 30362000 		.ascii "06 \0"
+ 359              	LC22:
+ 360 00ff 31342025 		.ascii "14 %s 04 \0"
+ 360      73203034 
+ 360      2000
+ 361              	LC23:
+ 362 0109 414E4400 		.ascii "AND\0"
+ 363              	LC24:
+ 364 010d 30372000 		.ascii "07 \0"
+ 365              	LC25:
+ 366 0111 30392000 		.ascii "09 \0"
+ 367              	LC26:
+ 368 0115 30642025 		.ascii "0d %s \0"
+ 368      732000
+ 369              	LC27:
+ 370 011c 30382000 		.ascii "08 \0"
+ 371              	LC28:
+ 372 0120 30622000 		.ascii "0b \0"
+ 373              	LC29:
+ 374 0124 30612000 		.ascii "0a \0"
+ 375              	LC30:
+ 376 0128 30632000 		.ascii "0c \0"
+ 377              	LC31:
+ 378 012c 4D4F5600 		.ascii "MOV\0"
+ 379              	LC32:
+ 380 0130 30652000 		.ascii "0e \0"
+ 381              	LC33:
+ 382 0134 31302000 		.ascii "10 \0"
+ 383              	LC34:
+ 384 0138 31342025 		.ascii "14 %s \0"
+ 384      732000
+ 385              	LC35:
+ 386 013f 30662000 		.ascii "0f \0"
+ 387              	LC36:
+ 388 0143 31322000 		.ascii "12 \0"
+ 389              	LC37:
+ 390 0147 31352025 		.ascii "15 %s \0"
+ 390      732000
+ 391              	LC38:
+ 392 014e 31312000 		.ascii "11 \0"
+ 393              	LC39:
+ 394 0152 31332000 		.ascii "13 \0"
+ 395              	LC40:
+ 396 0156 31362025 		.ascii "16 %s \0"
+ 396      732000
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 13
+
+
+ 397              	LC41:
+ 398 015d 4F555400 		.ascii "OUT\0"
+ 399              	LC42:
+ 400 0161 31372000 		.ascii "17 \0"
+ 401              	LC43:
+ 402 0165 31382000 		.ascii "18 \0"
+ 403              	LC44:
+ 404 0169 4A4D5000 		.ascii "JMP\0"
+ 405              	LC45:
+ 406 016d 31392025 		.ascii "19 %s \0"
+ 406      732000
+ 407              	LC46:
+ 408 0174 4C444100 		.ascii "LDA\0"
+ 409              	LC47:
+ 410 0178 43414C4C 		.ascii "CALL\0"
+ 410      00
+ 411              	LC48:
+ 412 017d 434D5000 		.ascii "CMP\0"
+ 413              	LC49:
+ 414 0181 44454300 		.ascii "DEC\0"
+ 415              	LC50:
+ 416 0185 484C5400 		.ascii "HLT\0"
+ 417              	LC51:
+ 418 0189 494E00   		.ascii "IN\0"
+ 419              	LC52:
+ 420 018c 494E4300 		.ascii "INC\0"
+ 421              	LC53:
+ 422 0190 4A4E5A00 		.ascii "JNZ\0"
+ 423              	LC54:
+ 424 0194 4A5A00   		.ascii "JZ\0"
+ 425              	LC55:
+ 426 0197 4E4F5000 		.ascii "NOP\0"
+ 427              	LC56:
+ 428 019b 4F5200   		.ascii "OR\0"
+ 429              	LC57:
+ 430 019e 52414C00 		.ascii "RAL\0"
+ 431              	LC58:
+ 432 01a2 52415200 		.ascii "RAR\0"
+ 433              	LC59:
+ 434 01a6 52455400 		.ascii "RET\0"
+ 435              	LC60:
+ 436 01aa 53544100 		.ascii "STA\0"
+ 437              	LC61:
+ 438 01ae 53554200 		.ascii "SUB\0"
+ 439              	LC62:
+ 440 01b2 584F5200 		.ascii "XOR\0"
+ 441              	LC63:
+ 442 01b6 434D4C00 		.ascii "CML\0"
+ 443 01ba 0000     		.text
+ 444              		.globl	_findHex
+ 446              	_findHex:
+ 447              	LFB7:
+ 111:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 112:C:/Users/Nerox/Desktop/assembler\main.c **** void findHex(char mnemonic[],char operand1[],char operand2[], FILE *ptrOFile)
+ 113:C:/Users/Nerox/Desktop/assembler\main.c **** {
+ 448              		.loc 1 113 0
+ 449              		.cfi_startproc
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 14
+
+
+ 450 044e 55       		pushl	%ebp
+ 451              		.cfi_def_cfa_offset 8
+ 452              		.cfi_offset 5, -8
+ 453 044f 89E5     		movl	%esp, %ebp
+ 454              		.cfi_def_cfa_register 5
+ 455 0451 83EC18   		subl	$24, %esp
+ 114:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"ADD") == 0 ) //OK
+ 456              		.loc 1 114 0
+ 457 0454 C7442404 		movl	$LC13, 4(%esp)
+ 457      CF000000 
+ 458 045c 8B4508   		movl	8(%ebp), %eax
+ 459 045f 890424   		movl	%eax, (%esp)
+ 460 0462 E8000000 		call	_strcmp
+ 460      00
+ 461 0467 85C0     		testl	%eax, %eax
+ 462 0469 0F858601 		jne	L23
+ 462      0000
+ 115:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 116:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 117:C:/Users/Nerox/Desktop/assembler\main.c ****         if( operand1[0] == 'A' )
+ 463              		.loc 1 117 0
+ 464 046f 8B450C   		movl	12(%ebp), %eax
+ 465 0472 0FB600   		movzbl	(%eax), %eax
+ 466 0475 3C41     		cmpb	$65, %al
+ 467 0477 7578     		jne	L24
+ 118:C:/Users/Nerox/Desktop/assembler\main.c ****         {
+ 119:C:/Users/Nerox/Desktop/assembler\main.c ****             if( operand2[0] == 'B' )
+ 468              		.loc 1 119 0
+ 469 0479 8B4510   		movl	16(%ebp), %eax
+ 470 047c 0FB600   		movzbl	(%eax), %eax
+ 471 047f 3C42     		cmpb	$66, %al
+ 472 0481 7525     		jne	L25
+ 120:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"01 ");
+ 473              		.loc 1 120 0
+ 474 0483 8B4514   		movl	20(%ebp), %eax
+ 475 0486 8944240C 		movl	%eax, 12(%esp)
+ 476 048a C7442408 		movl	$3, 8(%esp)
+ 476      03000000 
+ 477 0492 C7442404 		movl	$1, 4(%esp)
+ 477      01000000 
+ 478 049a C70424D3 		movl	$LC14, (%esp)
+ 478      000000
+ 479 04a1 E8000000 		call	_fwrite
+ 479      00
+ 480 04a6 EB49     		jmp	L24
+ 481              	L25:
+ 121:C:/Users/Nerox/Desktop/assembler\main.c ****             else if( operand2[0] == 'C' )
+ 482              		.loc 1 121 0
+ 483 04a8 8B4510   		movl	16(%ebp), %eax
+ 484 04ab 0FB600   		movzbl	(%eax), %eax
+ 485 04ae 3C43     		cmpb	$67, %al
+ 486 04b0 7525     		jne	L26
+ 122:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"03 ");
+ 487              		.loc 1 122 0
+ 488 04b2 8B4514   		movl	20(%ebp), %eax
+ 489 04b5 8944240C 		movl	%eax, 12(%esp)
+ 490 04b9 C7442408 		movl	$3, 8(%esp)
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 15
+
+
+ 490      03000000 
+ 491 04c1 C7442404 		movl	$1, 4(%esp)
+ 491      01000000 
+ 492 04c9 C70424D7 		movl	$LC15, (%esp)
+ 492      000000
+ 493 04d0 E8000000 		call	_fwrite
+ 493      00
+ 494 04d5 EB1A     		jmp	L24
+ 495              	L26:
+ 123:C:/Users/Nerox/Desktop/assembler\main.c ****             else
+ 124:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"15 %s 01 ",operand2);
+ 496              		.loc 1 124 0
+ 497 04d7 8B4510   		movl	16(%ebp), %eax
+ 498 04da 89442408 		movl	%eax, 8(%esp)
+ 499 04de C7442404 		movl	$LC16, 4(%esp)
+ 499      DB000000 
+ 500 04e6 8B4514   		movl	20(%ebp), %eax
+ 501 04e9 890424   		movl	%eax, (%esp)
+ 502 04ec E8000000 		call	_fprintf
+ 502      00
+ 503              	L24:
+ 125:C:/Users/Nerox/Desktop/assembler\main.c ****         }
+ 126:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 127:C:/Users/Nerox/Desktop/assembler\main.c ****         if( operand1[0] == 'B' )
+ 504              		.loc 1 127 0
+ 505 04f1 8B450C   		movl	12(%ebp), %eax
+ 506 04f4 0FB600   		movzbl	(%eax), %eax
+ 507 04f7 3C42     		cmpb	$66, %al
+ 508 04f9 7578     		jne	L27
+ 128:C:/Users/Nerox/Desktop/assembler\main.c ****         {
+ 129:C:/Users/Nerox/Desktop/assembler\main.c ****             if( operand2[0] == 'A' )
+ 509              		.loc 1 129 0
+ 510 04fb 8B4510   		movl	16(%ebp), %eax
+ 511 04fe 0FB600   		movzbl	(%eax), %eax
+ 512 0501 3C41     		cmpb	$65, %al
+ 513 0503 7525     		jne	L28
+ 130:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"02 ");
+ 514              		.loc 1 130 0
+ 515 0505 8B4514   		movl	20(%ebp), %eax
+ 516 0508 8944240C 		movl	%eax, 12(%esp)
+ 517 050c C7442408 		movl	$3, 8(%esp)
+ 517      03000000 
+ 518 0514 C7442404 		movl	$1, 4(%esp)
+ 518      01000000 
+ 519 051c C70424E5 		movl	$LC17, (%esp)
+ 519      000000
+ 520 0523 E8000000 		call	_fwrite
+ 520      00
+ 521 0528 EB49     		jmp	L27
+ 522              	L28:
+ 131:C:/Users/Nerox/Desktop/assembler\main.c ****             else if( operand2[0] == 'C' )
+ 523              		.loc 1 131 0
+ 524 052a 8B4510   		movl	16(%ebp), %eax
+ 525 052d 0FB600   		movzbl	(%eax), %eax
+ 526 0530 3C43     		cmpb	$67, %al
+ 527 0532 7525     		jne	L29
+ 132:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"05 ");
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 16
+
+
+ 528              		.loc 1 132 0
+ 529 0534 8B4514   		movl	20(%ebp), %eax
+ 530 0537 8944240C 		movl	%eax, 12(%esp)
+ 531 053b C7442408 		movl	$3, 8(%esp)
+ 531      03000000 
+ 532 0543 C7442404 		movl	$1, 4(%esp)
+ 532      01000000 
+ 533 054b C70424E9 		movl	$LC18, (%esp)
+ 533      000000
+ 534 0552 E8000000 		call	_fwrite
+ 534      00
+ 535 0557 EB1A     		jmp	L27
+ 536              	L29:
+ 133:C:/Users/Nerox/Desktop/assembler\main.c ****             else
+ 134:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"14 %s 02 ",operand2);
+ 537              		.loc 1 134 0
+ 538 0559 8B4510   		movl	16(%ebp), %eax
+ 539 055c 89442408 		movl	%eax, 8(%esp)
+ 540 0560 C7442404 		movl	$LC19, 4(%esp)
+ 540      ED000000 
+ 541 0568 8B4514   		movl	20(%ebp), %eax
+ 542 056b 890424   		movl	%eax, (%esp)
+ 543 056e E8000000 		call	_fprintf
+ 543      00
+ 544              	L27:
+ 135:C:/Users/Nerox/Desktop/assembler\main.c ****         }
+ 136:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 137:C:/Users/Nerox/Desktop/assembler\main.c ****         if( operand1[0] == 'C' )
+ 545              		.loc 1 137 0
+ 546 0573 8B450C   		movl	12(%ebp), %eax
+ 547 0576 0FB600   		movzbl	(%eax), %eax
+ 548 0579 3C43     		cmpb	$67, %al
+ 549 057b 7578     		jne	L23
+ 138:C:/Users/Nerox/Desktop/assembler\main.c ****         {
+ 139:C:/Users/Nerox/Desktop/assembler\main.c ****             if( operand2[0] == 'A' )
+ 550              		.loc 1 139 0
+ 551 057d 8B4510   		movl	16(%ebp), %eax
+ 552 0580 0FB600   		movzbl	(%eax), %eax
+ 553 0583 3C41     		cmpb	$65, %al
+ 554 0585 7525     		jne	L30
+ 140:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"04 ");
+ 555              		.loc 1 140 0
+ 556 0587 8B4514   		movl	20(%ebp), %eax
+ 557 058a 8944240C 		movl	%eax, 12(%esp)
+ 558 058e C7442408 		movl	$3, 8(%esp)
+ 558      03000000 
+ 559 0596 C7442404 		movl	$1, 4(%esp)
+ 559      01000000 
+ 560 059e C70424F7 		movl	$LC20, (%esp)
+ 560      000000
+ 561 05a5 E8000000 		call	_fwrite
+ 561      00
+ 562 05aa EB49     		jmp	L23
+ 563              	L30:
+ 141:C:/Users/Nerox/Desktop/assembler\main.c ****             else if( operand2[0] == 'B' )
+ 564              		.loc 1 141 0
+ 565 05ac 8B4510   		movl	16(%ebp), %eax
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 17
+
+
+ 566 05af 0FB600   		movzbl	(%eax), %eax
+ 567 05b2 3C42     		cmpb	$66, %al
+ 568 05b4 7525     		jne	L31
+ 142:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"06 ");
+ 569              		.loc 1 142 0
+ 570 05b6 8B4514   		movl	20(%ebp), %eax
+ 571 05b9 8944240C 		movl	%eax, 12(%esp)
+ 572 05bd C7442408 		movl	$3, 8(%esp)
+ 572      03000000 
+ 573 05c5 C7442404 		movl	$1, 4(%esp)
+ 573      01000000 
+ 574 05cd C70424FB 		movl	$LC21, (%esp)
+ 574      000000
+ 575 05d4 E8000000 		call	_fwrite
+ 575      00
+ 576 05d9 EB1A     		jmp	L23
+ 577              	L31:
+ 143:C:/Users/Nerox/Desktop/assembler\main.c ****             else
+ 144:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"14 %s 04 ",operand2);
+ 578              		.loc 1 144 0
+ 579 05db 8B4510   		movl	16(%ebp), %eax
+ 580 05de 89442408 		movl	%eax, 8(%esp)
+ 581 05e2 C7442404 		movl	$LC22, 4(%esp)
+ 581      FF000000 
+ 582 05ea 8B4514   		movl	20(%ebp), %eax
+ 583 05ed 890424   		movl	%eax, (%esp)
+ 584 05f0 E8000000 		call	_fprintf
+ 584      00
+ 585              	L23:
+ 145:C:/Users/Nerox/Desktop/assembler\main.c ****         }
+ 146:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 147:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 148:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 149:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"AND") == 0 ) //OK
+ 586              		.loc 1 149 0
+ 587 05f5 C7442404 		movl	$LC23, 4(%esp)
+ 587      09010000 
+ 588 05fd 8B4508   		movl	8(%ebp), %eax
+ 589 0600 890424   		movl	%eax, (%esp)
+ 590 0603 E8000000 		call	_strcmp
+ 590      00
+ 591 0608 85C0     		testl	%eax, %eax
+ 592 060a 0F854E01 		jne	L32
+ 592      0000
+ 150:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 151:C:/Users/Nerox/Desktop/assembler\main.c ****         if( operand1[0] == 'A' )
+ 593              		.loc 1 151 0
+ 594 0610 8B450C   		movl	12(%ebp), %eax
+ 595 0613 0FB600   		movzbl	(%eax), %eax
+ 596 0616 3C41     		cmpb	$65, %al
+ 597 0618 7578     		jne	L33
+ 152:C:/Users/Nerox/Desktop/assembler\main.c ****         {
+ 153:C:/Users/Nerox/Desktop/assembler\main.c ****             if( operand2[0] == 'B' )
+ 598              		.loc 1 153 0
+ 599 061a 8B4510   		movl	16(%ebp), %eax
+ 600 061d 0FB600   		movzbl	(%eax), %eax
+ 601 0620 3C42     		cmpb	$66, %al
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 18
+
+
+ 602 0622 7525     		jne	L34
+ 154:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"07 ");
+ 603              		.loc 1 154 0
+ 604 0624 8B4514   		movl	20(%ebp), %eax
+ 605 0627 8944240C 		movl	%eax, 12(%esp)
+ 606 062b C7442408 		movl	$3, 8(%esp)
+ 606      03000000 
+ 607 0633 C7442404 		movl	$1, 4(%esp)
+ 607      01000000 
+ 608 063b C704240D 		movl	$LC24, (%esp)
+ 608      010000
+ 609 0642 E8000000 		call	_fwrite
+ 609      00
+ 610 0647 EB49     		jmp	L33
+ 611              	L34:
+ 155:C:/Users/Nerox/Desktop/assembler\main.c ****             else if( operand2[0] == 'C' )
+ 612              		.loc 1 155 0
+ 613 0649 8B4510   		movl	16(%ebp), %eax
+ 614 064c 0FB600   		movzbl	(%eax), %eax
+ 615 064f 3C43     		cmpb	$67, %al
+ 616 0651 7525     		jne	L35
+ 156:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"09 ");
+ 617              		.loc 1 156 0
+ 618 0653 8B4514   		movl	20(%ebp), %eax
+ 619 0656 8944240C 		movl	%eax, 12(%esp)
+ 620 065a C7442408 		movl	$3, 8(%esp)
+ 620      03000000 
+ 621 0662 C7442404 		movl	$1, 4(%esp)
+ 621      01000000 
+ 622 066a C7042411 		movl	$LC25, (%esp)
+ 622      010000
+ 623 0671 E8000000 		call	_fwrite
+ 623      00
+ 624 0676 EB1A     		jmp	L33
+ 625              	L35:
+ 157:C:/Users/Nerox/Desktop/assembler\main.c ****             else
+ 158:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"0d %s ",operand2);
+ 626              		.loc 1 158 0
+ 627 0678 8B4510   		movl	16(%ebp), %eax
+ 628 067b 89442408 		movl	%eax, 8(%esp)
+ 629 067f C7442404 		movl	$LC26, 4(%esp)
+ 629      15010000 
+ 630 0687 8B4514   		movl	20(%ebp), %eax
+ 631 068a 890424   		movl	%eax, (%esp)
+ 632 068d E8000000 		call	_fprintf
+ 632      00
+ 633              	L33:
+ 159:C:/Users/Nerox/Desktop/assembler\main.c ****         }
+ 160:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 161:C:/Users/Nerox/Desktop/assembler\main.c ****         if( operand1[0] == 'B' )
+ 634              		.loc 1 161 0
+ 635 0692 8B450C   		movl	12(%ebp), %eax
+ 636 0695 0FB600   		movzbl	(%eax), %eax
+ 637 0698 3C42     		cmpb	$66, %al
+ 638 069a 755C     		jne	L36
+ 162:C:/Users/Nerox/Desktop/assembler\main.c ****         {
+ 163:C:/Users/Nerox/Desktop/assembler\main.c ****             if( operand2[0] == 'A' )
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 19
+
+
+ 639              		.loc 1 163 0
+ 640 069c 8B4510   		movl	16(%ebp), %eax
+ 641 069f 0FB600   		movzbl	(%eax), %eax
+ 642 06a2 3C41     		cmpb	$65, %al
+ 643 06a4 7525     		jne	L37
+ 164:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"08 ");
+ 644              		.loc 1 164 0
+ 645 06a6 8B4514   		movl	20(%ebp), %eax
+ 646 06a9 8944240C 		movl	%eax, 12(%esp)
+ 647 06ad C7442408 		movl	$3, 8(%esp)
+ 647      03000000 
+ 648 06b5 C7442404 		movl	$1, 4(%esp)
+ 648      01000000 
+ 649 06bd C704241C 		movl	$LC27, (%esp)
+ 649      010000
+ 650 06c4 E8000000 		call	_fwrite
+ 650      00
+ 651 06c9 EB2D     		jmp	L36
+ 652              	L37:
+ 165:C:/Users/Nerox/Desktop/assembler\main.c ****             else if( operand2[0] == 'C' )
+ 653              		.loc 1 165 0
+ 654 06cb 8B4510   		movl	16(%ebp), %eax
+ 655 06ce 0FB600   		movzbl	(%eax), %eax
+ 656 06d1 3C43     		cmpb	$67, %al
+ 657 06d3 7523     		jne	L36
+ 166:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"0b ");
+ 658              		.loc 1 166 0
+ 659 06d5 8B4514   		movl	20(%ebp), %eax
+ 660 06d8 8944240C 		movl	%eax, 12(%esp)
+ 661 06dc C7442408 		movl	$3, 8(%esp)
+ 661      03000000 
+ 662 06e4 C7442404 		movl	$1, 4(%esp)
+ 662      01000000 
+ 663 06ec C7042420 		movl	$LC28, (%esp)
+ 663      010000
+ 664 06f3 E8000000 		call	_fwrite
+ 664      00
+ 665              	L36:
+ 167:C:/Users/Nerox/Desktop/assembler\main.c ****         }
+ 168:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 169:C:/Users/Nerox/Desktop/assembler\main.c ****         if( operand1[0] == 'C' )
+ 666              		.loc 1 169 0
+ 667 06f8 8B450C   		movl	12(%ebp), %eax
+ 668 06fb 0FB600   		movzbl	(%eax), %eax
+ 669 06fe 3C43     		cmpb	$67, %al
+ 670 0700 755C     		jne	L32
+ 170:C:/Users/Nerox/Desktop/assembler\main.c ****         {
+ 171:C:/Users/Nerox/Desktop/assembler\main.c ****             if( operand2[0] == 'A' )
+ 671              		.loc 1 171 0
+ 672 0702 8B4510   		movl	16(%ebp), %eax
+ 673 0705 0FB600   		movzbl	(%eax), %eax
+ 674 0708 3C41     		cmpb	$65, %al
+ 675 070a 7525     		jne	L38
+ 172:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"0a ");
+ 676              		.loc 1 172 0
+ 677 070c 8B4514   		movl	20(%ebp), %eax
+ 678 070f 8944240C 		movl	%eax, 12(%esp)
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 20
+
+
+ 679 0713 C7442408 		movl	$3, 8(%esp)
+ 679      03000000 
+ 680 071b C7442404 		movl	$1, 4(%esp)
+ 680      01000000 
+ 681 0723 C7042424 		movl	$LC29, (%esp)
+ 681      010000
+ 682 072a E8000000 		call	_fwrite
+ 682      00
+ 683 072f EB2D     		jmp	L32
+ 684              	L38:
+ 173:C:/Users/Nerox/Desktop/assembler\main.c ****             else if( operand2[0] == 'B' )
+ 685              		.loc 1 173 0
+ 686 0731 8B4510   		movl	16(%ebp), %eax
+ 687 0734 0FB600   		movzbl	(%eax), %eax
+ 688 0737 3C42     		cmpb	$66, %al
+ 689 0739 7523     		jne	L32
+ 174:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"0c ");
+ 690              		.loc 1 174 0
+ 691 073b 8B4514   		movl	20(%ebp), %eax
+ 692 073e 8944240C 		movl	%eax, 12(%esp)
+ 693 0742 C7442408 		movl	$3, 8(%esp)
+ 693      03000000 
+ 694 074a C7442404 		movl	$1, 4(%esp)
+ 694      01000000 
+ 695 0752 C7042428 		movl	$LC30, (%esp)
+ 695      010000
+ 696 0759 E8000000 		call	_fwrite
+ 696      00
+ 697              	L32:
+ 175:C:/Users/Nerox/Desktop/assembler\main.c ****         }
+ 176:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 177:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 178:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 179:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"MOV") == 0 ) //OK
+ 698              		.loc 1 179 0
+ 699 075e C7442404 		movl	$LC31, 4(%esp)
+ 699      2C010000 
+ 700 0766 8B4508   		movl	8(%ebp), %eax
+ 701 0769 890424   		movl	%eax, (%esp)
+ 702 076c E8000000 		call	_strcmp
+ 702      00
+ 703 0771 85C0     		testl	%eax, %eax
+ 704 0773 0F858601 		jne	L39
+ 704      0000
+ 180:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 181:C:/Users/Nerox/Desktop/assembler\main.c ****         if( operand1[0] == 'A' )
+ 705              		.loc 1 181 0
+ 706 0779 8B450C   		movl	12(%ebp), %eax
+ 707 077c 0FB600   		movzbl	(%eax), %eax
+ 708 077f 3C41     		cmpb	$65, %al
+ 709 0781 7578     		jne	L40
+ 182:C:/Users/Nerox/Desktop/assembler\main.c ****         {
+ 183:C:/Users/Nerox/Desktop/assembler\main.c ****             if( operand2[0] == 'B' )
+ 710              		.loc 1 183 0
+ 711 0783 8B4510   		movl	16(%ebp), %eax
+ 712 0786 0FB600   		movzbl	(%eax), %eax
+ 713 0789 3C42     		cmpb	$66, %al
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 21
+
+
+ 714 078b 7525     		jne	L41
+ 184:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"0e ");
+ 715              		.loc 1 184 0
+ 716 078d 8B4514   		movl	20(%ebp), %eax
+ 717 0790 8944240C 		movl	%eax, 12(%esp)
+ 718 0794 C7442408 		movl	$3, 8(%esp)
+ 718      03000000 
+ 719 079c C7442404 		movl	$1, 4(%esp)
+ 719      01000000 
+ 720 07a4 C7042430 		movl	$LC32, (%esp)
+ 720      010000
+ 721 07ab E8000000 		call	_fwrite
+ 721      00
+ 722 07b0 EB49     		jmp	L40
+ 723              	L41:
+ 185:C:/Users/Nerox/Desktop/assembler\main.c ****             else if( operand2[0] == 'C' )
+ 724              		.loc 1 185 0
+ 725 07b2 8B4510   		movl	16(%ebp), %eax
+ 726 07b5 0FB600   		movzbl	(%eax), %eax
+ 727 07b8 3C43     		cmpb	$67, %al
+ 728 07ba 7525     		jne	L42
+ 186:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"10 ");
+ 729              		.loc 1 186 0
+ 730 07bc 8B4514   		movl	20(%ebp), %eax
+ 731 07bf 8944240C 		movl	%eax, 12(%esp)
+ 732 07c3 C7442408 		movl	$3, 8(%esp)
+ 732      03000000 
+ 733 07cb C7442404 		movl	$1, 4(%esp)
+ 733      01000000 
+ 734 07d3 C7042434 		movl	$LC33, (%esp)
+ 734      010000
+ 735 07da E8000000 		call	_fwrite
+ 735      00
+ 736 07df EB1A     		jmp	L40
+ 737              	L42:
+ 187:C:/Users/Nerox/Desktop/assembler\main.c ****             else
+ 188:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"14 %s ",operand2);
+ 738              		.loc 1 188 0
+ 739 07e1 8B4510   		movl	16(%ebp), %eax
+ 740 07e4 89442408 		movl	%eax, 8(%esp)
+ 741 07e8 C7442404 		movl	$LC34, 4(%esp)
+ 741      38010000 
+ 742 07f0 8B4514   		movl	20(%ebp), %eax
+ 743 07f3 890424   		movl	%eax, (%esp)
+ 744 07f6 E8000000 		call	_fprintf
+ 744      00
+ 745              	L40:
+ 189:C:/Users/Nerox/Desktop/assembler\main.c ****         }
+ 190:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 191:C:/Users/Nerox/Desktop/assembler\main.c ****         if( operand1[0] == 'B' )
+ 746              		.loc 1 191 0
+ 747 07fb 8B450C   		movl	12(%ebp), %eax
+ 748 07fe 0FB600   		movzbl	(%eax), %eax
+ 749 0801 3C42     		cmpb	$66, %al
+ 750 0803 7578     		jne	L43
+ 192:C:/Users/Nerox/Desktop/assembler\main.c ****         {
+ 193:C:/Users/Nerox/Desktop/assembler\main.c ****             if( operand2[0] == 'A' )
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 22
+
+
+ 751              		.loc 1 193 0
+ 752 0805 8B4510   		movl	16(%ebp), %eax
+ 753 0808 0FB600   		movzbl	(%eax), %eax
+ 754 080b 3C41     		cmpb	$65, %al
+ 755 080d 7525     		jne	L44
+ 194:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"0f ");
+ 756              		.loc 1 194 0
+ 757 080f 8B4514   		movl	20(%ebp), %eax
+ 758 0812 8944240C 		movl	%eax, 12(%esp)
+ 759 0816 C7442408 		movl	$3, 8(%esp)
+ 759      03000000 
+ 760 081e C7442404 		movl	$1, 4(%esp)
+ 760      01000000 
+ 761 0826 C704243F 		movl	$LC35, (%esp)
+ 761      010000
+ 762 082d E8000000 		call	_fwrite
+ 762      00
+ 763 0832 EB49     		jmp	L43
+ 764              	L44:
+ 195:C:/Users/Nerox/Desktop/assembler\main.c ****             else if( operand2[0] == 'C' )
+ 765              		.loc 1 195 0
+ 766 0834 8B4510   		movl	16(%ebp), %eax
+ 767 0837 0FB600   		movzbl	(%eax), %eax
+ 768 083a 3C43     		cmpb	$67, %al
+ 769 083c 7525     		jne	L45
+ 196:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"12 ");
+ 770              		.loc 1 196 0
+ 771 083e 8B4514   		movl	20(%ebp), %eax
+ 772 0841 8944240C 		movl	%eax, 12(%esp)
+ 773 0845 C7442408 		movl	$3, 8(%esp)
+ 773      03000000 
+ 774 084d C7442404 		movl	$1, 4(%esp)
+ 774      01000000 
+ 775 0855 C7042443 		movl	$LC36, (%esp)
+ 775      010000
+ 776 085c E8000000 		call	_fwrite
+ 776      00
+ 777 0861 EB1A     		jmp	L43
+ 778              	L45:
+ 197:C:/Users/Nerox/Desktop/assembler\main.c ****             else
+ 198:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"15 %s ",operand2);
+ 779              		.loc 1 198 0
+ 780 0863 8B4510   		movl	16(%ebp), %eax
+ 781 0866 89442408 		movl	%eax, 8(%esp)
+ 782 086a C7442404 		movl	$LC37, 4(%esp)
+ 782      47010000 
+ 783 0872 8B4514   		movl	20(%ebp), %eax
+ 784 0875 890424   		movl	%eax, (%esp)
+ 785 0878 E8000000 		call	_fprintf
+ 785      00
+ 786              	L43:
+ 199:C:/Users/Nerox/Desktop/assembler\main.c ****         }
+ 200:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 201:C:/Users/Nerox/Desktop/assembler\main.c ****         if( operand1[0] == 'C' )
+ 787              		.loc 1 201 0
+ 788 087d 8B450C   		movl	12(%ebp), %eax
+ 789 0880 0FB600   		movzbl	(%eax), %eax
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 23
+
+
+ 790 0883 3C43     		cmpb	$67, %al
+ 791 0885 7578     		jne	L39
+ 202:C:/Users/Nerox/Desktop/assembler\main.c ****         {
+ 203:C:/Users/Nerox/Desktop/assembler\main.c ****             if( operand2[0] == 'A' )
+ 792              		.loc 1 203 0
+ 793 0887 8B4510   		movl	16(%ebp), %eax
+ 794 088a 0FB600   		movzbl	(%eax), %eax
+ 795 088d 3C41     		cmpb	$65, %al
+ 796 088f 7525     		jne	L46
+ 204:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"11 ");
+ 797              		.loc 1 204 0
+ 798 0891 8B4514   		movl	20(%ebp), %eax
+ 799 0894 8944240C 		movl	%eax, 12(%esp)
+ 800 0898 C7442408 		movl	$3, 8(%esp)
+ 800      03000000 
+ 801 08a0 C7442404 		movl	$1, 4(%esp)
+ 801      01000000 
+ 802 08a8 C704244E 		movl	$LC38, (%esp)
+ 802      010000
+ 803 08af E8000000 		call	_fwrite
+ 803      00
+ 804 08b4 EB49     		jmp	L39
+ 805              	L46:
+ 205:C:/Users/Nerox/Desktop/assembler\main.c ****             else if( operand2[0] == 'B' )
+ 806              		.loc 1 205 0
+ 807 08b6 8B4510   		movl	16(%ebp), %eax
+ 808 08b9 0FB600   		movzbl	(%eax), %eax
+ 809 08bc 3C42     		cmpb	$66, %al
+ 810 08be 7525     		jne	L47
+ 206:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"13 ");
+ 811              		.loc 1 206 0
+ 812 08c0 8B4514   		movl	20(%ebp), %eax
+ 813 08c3 8944240C 		movl	%eax, 12(%esp)
+ 814 08c7 C7442408 		movl	$3, 8(%esp)
+ 814      03000000 
+ 815 08cf C7442404 		movl	$1, 4(%esp)
+ 815      01000000 
+ 816 08d7 C7042452 		movl	$LC39, (%esp)
+ 816      010000
+ 817 08de E8000000 		call	_fwrite
+ 817      00
+ 818 08e3 EB1A     		jmp	L39
+ 819              	L47:
+ 207:C:/Users/Nerox/Desktop/assembler\main.c ****             else
+ 208:C:/Users/Nerox/Desktop/assembler\main.c ****                 fprintf(ptrOFile,"16 %s ",operand2);
+ 820              		.loc 1 208 0
+ 821 08e5 8B4510   		movl	16(%ebp), %eax
+ 822 08e8 89442408 		movl	%eax, 8(%esp)
+ 823 08ec C7442404 		movl	$LC40, 4(%esp)
+ 823      56010000 
+ 824 08f4 8B4514   		movl	20(%ebp), %eax
+ 825 08f7 890424   		movl	%eax, (%esp)
+ 826 08fa E8000000 		call	_fprintf
+ 826      00
+ 827              	L39:
+ 209:C:/Users/Nerox/Desktop/assembler\main.c ****         }
+ 210:C:/Users/Nerox/Desktop/assembler\main.c **** 
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 24
+
+
+ 211:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 212:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 213:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"OUT") == 0 ) //OK
+ 828              		.loc 1 213 0
+ 829 08ff C7442404 		movl	$LC41, 4(%esp)
+ 829      5D010000 
+ 830 0907 8B4508   		movl	8(%ebp), %eax
+ 831 090a 890424   		movl	%eax, (%esp)
+ 832 090d E8000000 		call	_strcmp
+ 832      00
+ 833 0912 85C0     		testl	%eax, %eax
+ 834 0914 755A     		jne	L48
+ 214:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 215:C:/Users/Nerox/Desktop/assembler\main.c ****         if( operand1[0] == '3' )
+ 835              		.loc 1 215 0
+ 836 0916 8B450C   		movl	12(%ebp), %eax
+ 837 0919 0FB600   		movzbl	(%eax), %eax
+ 838 091c 3C33     		cmpb	$51, %al
+ 839 091e 7523     		jne	L49
+ 216:C:/Users/Nerox/Desktop/assembler\main.c ****             fprintf(ptrOFile,"17 ");
+ 840              		.loc 1 216 0
+ 841 0920 8B4514   		movl	20(%ebp), %eax
+ 842 0923 8944240C 		movl	%eax, 12(%esp)
+ 843 0927 C7442408 		movl	$3, 8(%esp)
+ 843      03000000 
+ 844 092f C7442404 		movl	$1, 4(%esp)
+ 844      01000000 
+ 845 0937 C7042461 		movl	$LC42, (%esp)
+ 845      010000
+ 846 093e E8000000 		call	_fwrite
+ 846      00
+ 847              	L49:
+ 217:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 218:C:/Users/Nerox/Desktop/assembler\main.c ****         if( operand1[0] == '4' )
+ 848              		.loc 1 218 0
+ 849 0943 8B450C   		movl	12(%ebp), %eax
+ 850 0946 0FB600   		movzbl	(%eax), %eax
+ 851 0949 3C34     		cmpb	$52, %al
+ 852 094b 7523     		jne	L48
+ 219:C:/Users/Nerox/Desktop/assembler\main.c ****             fprintf(ptrOFile,"18 ");
+ 853              		.loc 1 219 0
+ 854 094d 8B4514   		movl	20(%ebp), %eax
+ 855 0950 8944240C 		movl	%eax, 12(%esp)
+ 856 0954 C7442408 		movl	$3, 8(%esp)
+ 856      03000000 
+ 857 095c C7442404 		movl	$1, 4(%esp)
+ 857      01000000 
+ 858 0964 C7042465 		movl	$LC43, (%esp)
+ 858      010000
+ 859 096b E8000000 		call	_fwrite
+ 859      00
+ 860              	L48:
+ 220:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 221:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 222:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 223:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 224:C:/Users/Nerox/Desktop/assembler\main.c **** if( strcmp(mnemonic,"JMP") == 0 ) //OK
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 25
+
+
+ 861              		.loc 1 224 0
+ 862 0970 C7442404 		movl	$LC44, 4(%esp)
+ 862      69010000 
+ 863 0978 8B4508   		movl	8(%ebp), %eax
+ 864 097b 890424   		movl	%eax, (%esp)
+ 865 097e E8000000 		call	_strcmp
+ 865      00
+ 866 0983 85C0     		testl	%eax, %eax
+ 867 0985 751A     		jne	L50
+ 225:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 226:C:/Users/Nerox/Desktop/assembler\main.c ****         fprintf(ptrOFile,"19 %s ",operand1);
+ 868              		.loc 1 226 0
+ 869 0987 8B450C   		movl	12(%ebp), %eax
+ 870 098a 89442408 		movl	%eax, 8(%esp)
+ 871 098e C7442404 		movl	$LC45, 4(%esp)
+ 871      6D010000 
+ 872 0996 8B4514   		movl	20(%ebp), %eax
+ 873 0999 890424   		movl	%eax, (%esp)
+ 874 099c E8000000 		call	_fprintf
+ 874      00
+ 875              	L50:
+ 227:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 228:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 229:C:/Users/Nerox/Desktop/assembler\main.c **** if( strcmp(mnemonic,"LDA") == 0 )
+ 876              		.loc 1 229 0
+ 877 09a1 C7442404 		movl	$LC46, 4(%esp)
+ 877      74010000 
+ 878 09a9 8B4508   		movl	8(%ebp), %eax
+ 879 09ac 890424   		movl	%eax, (%esp)
+ 880 09af E8000000 		call	_strcmp
+ 880      00
+ 230:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 231:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 232:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 233:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 234:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"CALL") == 0 )
+ 881              		.loc 1 234 0
+ 882 09b4 C7442404 		movl	$LC47, 4(%esp)
+ 882      78010000 
+ 883 09bc 8B4508   		movl	8(%ebp), %eax
+ 884 09bf 890424   		movl	%eax, (%esp)
+ 885 09c2 E8000000 		call	_strcmp
+ 885      00
+ 235:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 236:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 237:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 238:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 239:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"CMP") == 0 )
+ 886              		.loc 1 239 0
+ 887 09c7 C7442404 		movl	$LC48, 4(%esp)
+ 887      7D010000 
+ 888 09cf 8B4508   		movl	8(%ebp), %eax
+ 889 09d2 890424   		movl	%eax, (%esp)
+ 890 09d5 E8000000 		call	_strcmp
+ 890      00
+ 240:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 241:C:/Users/Nerox/Desktop/assembler\main.c **** 
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 26
+
+
+ 242:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 243:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 244:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"DEC") == 0 )
+ 891              		.loc 1 244 0
+ 892 09da C7442404 		movl	$LC49, 4(%esp)
+ 892      81010000 
+ 893 09e2 8B4508   		movl	8(%ebp), %eax
+ 894 09e5 890424   		movl	%eax, (%esp)
+ 895 09e8 E8000000 		call	_strcmp
+ 895      00
+ 245:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 246:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 247:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 248:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 249:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"HLT") == 0 )
+ 896              		.loc 1 249 0
+ 897 09ed C7442404 		movl	$LC50, 4(%esp)
+ 897      85010000 
+ 898 09f5 8B4508   		movl	8(%ebp), %eax
+ 899 09f8 890424   		movl	%eax, (%esp)
+ 900 09fb E8000000 		call	_strcmp
+ 900      00
+ 250:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 251:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 252:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 253:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 254:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"IN") == 0 )
+ 901              		.loc 1 254 0
+ 902 0a00 C7442404 		movl	$LC51, 4(%esp)
+ 902      89010000 
+ 903 0a08 8B4508   		movl	8(%ebp), %eax
+ 904 0a0b 890424   		movl	%eax, (%esp)
+ 905 0a0e E8000000 		call	_strcmp
+ 905      00
+ 255:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 256:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 257:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 258:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 259:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"INC") == 0 )
+ 906              		.loc 1 259 0
+ 907 0a13 C7442404 		movl	$LC52, 4(%esp)
+ 907      8C010000 
+ 908 0a1b 8B4508   		movl	8(%ebp), %eax
+ 909 0a1e 890424   		movl	%eax, (%esp)
+ 910 0a21 E8000000 		call	_strcmp
+ 910      00
+ 260:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 261:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 262:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 263:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 264:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"JNZ") == 0 )
+ 911              		.loc 1 264 0
+ 912 0a26 C7442404 		movl	$LC53, 4(%esp)
+ 912      90010000 
+ 913 0a2e 8B4508   		movl	8(%ebp), %eax
+ 914 0a31 890424   		movl	%eax, (%esp)
+ 915 0a34 E8000000 		call	_strcmp
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 27
+
+
+ 915      00
+ 265:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 266:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 267:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 268:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 269:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"JZ") == 0 )
+ 916              		.loc 1 269 0
+ 917 0a39 C7442404 		movl	$LC54, 4(%esp)
+ 917      94010000 
+ 918 0a41 8B4508   		movl	8(%ebp), %eax
+ 919 0a44 890424   		movl	%eax, (%esp)
+ 920 0a47 E8000000 		call	_strcmp
+ 920      00
+ 270:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 271:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 272:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 273:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 274:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"NOP") == 0 )
+ 921              		.loc 1 274 0
+ 922 0a4c C7442404 		movl	$LC55, 4(%esp)
+ 922      97010000 
+ 923 0a54 8B4508   		movl	8(%ebp), %eax
+ 924 0a57 890424   		movl	%eax, (%esp)
+ 925 0a5a E8000000 		call	_strcmp
+ 925      00
+ 275:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 276:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 277:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 278:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 279:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"OR") == 0 )
+ 926              		.loc 1 279 0
+ 927 0a5f C7442404 		movl	$LC56, 4(%esp)
+ 927      9B010000 
+ 928 0a67 8B4508   		movl	8(%ebp), %eax
+ 929 0a6a 890424   		movl	%eax, (%esp)
+ 930 0a6d E8000000 		call	_strcmp
+ 930      00
+ 280:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 281:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 282:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 283:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 284:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"RAL") == 0 )
+ 931              		.loc 1 284 0
+ 932 0a72 C7442404 		movl	$LC57, 4(%esp)
+ 932      9E010000 
+ 933 0a7a 8B4508   		movl	8(%ebp), %eax
+ 934 0a7d 890424   		movl	%eax, (%esp)
+ 935 0a80 E8000000 		call	_strcmp
+ 935      00
+ 285:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 286:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 287:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 288:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 289:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"RAR") == 0 )
+ 936              		.loc 1 289 0
+ 937 0a85 C7442404 		movl	$LC58, 4(%esp)
+ 937      A2010000 
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 28
+
+
+ 938 0a8d 8B4508   		movl	8(%ebp), %eax
+ 939 0a90 890424   		movl	%eax, (%esp)
+ 940 0a93 E8000000 		call	_strcmp
+ 940      00
+ 290:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 291:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 292:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 293:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 294:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"RET") == 0 )
+ 941              		.loc 1 294 0
+ 942 0a98 C7442404 		movl	$LC59, 4(%esp)
+ 942      A6010000 
+ 943 0aa0 8B4508   		movl	8(%ebp), %eax
+ 944 0aa3 890424   		movl	%eax, (%esp)
+ 945 0aa6 E8000000 		call	_strcmp
+ 945      00
+ 295:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 296:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 297:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 298:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 299:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"STA") == 0 )
+ 946              		.loc 1 299 0
+ 947 0aab C7442404 		movl	$LC60, 4(%esp)
+ 947      AA010000 
+ 948 0ab3 8B4508   		movl	8(%ebp), %eax
+ 949 0ab6 890424   		movl	%eax, (%esp)
+ 950 0ab9 E8000000 		call	_strcmp
+ 950      00
+ 300:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 301:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 302:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 303:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 304:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"SUB") == 0 )
+ 951              		.loc 1 304 0
+ 952 0abe C7442404 		movl	$LC61, 4(%esp)
+ 952      AE010000 
+ 953 0ac6 8B4508   		movl	8(%ebp), %eax
+ 954 0ac9 890424   		movl	%eax, (%esp)
+ 955 0acc E8000000 		call	_strcmp
+ 955      00
+ 305:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 306:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 307:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 308:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 309:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"XOR") == 0 )
+ 956              		.loc 1 309 0
+ 957 0ad1 C7442404 		movl	$LC62, 4(%esp)
+ 957      B2010000 
+ 958 0ad9 8B4508   		movl	8(%ebp), %eax
+ 959 0adc 890424   		movl	%eax, (%esp)
+ 960 0adf E8000000 		call	_strcmp
+ 960      00
+ 310:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 311:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 312:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 313:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 314:C:/Users/Nerox/Desktop/assembler\main.c ****     if( strcmp(mnemonic,"CML") == 0 )
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 29
+
+
+ 961              		.loc 1 314 0
+ 962 0ae4 C7442404 		movl	$LC63, 4(%esp)
+ 962      B6010000 
+ 963 0aec 8B4508   		movl	8(%ebp), %eax
+ 964 0aef 890424   		movl	%eax, (%esp)
+ 965 0af2 E8000000 		call	_strcmp
+ 965      00
+ 315:C:/Users/Nerox/Desktop/assembler\main.c ****     {
+ 316:C:/Users/Nerox/Desktop/assembler\main.c **** 
+ 317:C:/Users/Nerox/Desktop/assembler\main.c ****     }
+ 318:C:/Users/Nerox/Desktop/assembler\main.c ****     return 0;
+ 966              		.loc 1 318 0
+ 967 0af7 90       		nop
+ 319:C:/Users/Nerox/Desktop/assembler\main.c **** }
+ 968              		.loc 1 319 0
+ 969 0af8 C9       		leave
+ 970              		.cfi_restore 5
+ 971              		.cfi_def_cfa 4, 4
+ 972 0af9 C3       		ret
+ 973              		.cfi_endproc
+ 974              	LFE7:
+ 975              	Letext0:
+ 976              		.file 2 "c:/program files (x86)/codeblocks/mingw/include/stdio.h"
+ 977              		.file 3 "<built-in>"
+ 978 0afa 9090     		.section	.debug_info,"dr"
+ 979              	Ldebug_info0:
+ 980 0000 8E030000 		.long	0x38e
+ 981 0004 0400     		.word	0x4
+ 982 0006 00000000 		.secrel32	Ldebug_abbrev0
+ 983 000a 04       		.byte	0x4
+ 984 000b 01       		.uleb128 0x1
+ 985 000c 474E5520 		.ascii "GNU C 4.8.1 -mtune=generic -march=pentiumpro -g\0"
+ 985      4320342E 
+ 985      382E3120 
+ 985      2D6D7475 
+ 985      6E653D67 
+ 986 003c 01       		.byte	0x1
+ 987 003d 433A5C55 		.ascii "C:\\Users\\Nerox\\Desktop\\assembler\\main.c\0"
+ 987      73657273 
+ 987      5C4E6572 
+ 987      6F785C44 
+ 987      65736B74 
+ 988 0065 433A5C55 		.ascii "C:\\Users\\Nerox\\Desktop\\assembler\0"
+ 988      73657273 
+ 988      5C4E6572 
+ 988      6F785C44 
+ 988      65736B74 
+ 989 0086 00000000 		.long	Ltext0
+ 990 008a FA0A0000 		.long	Letext0-Ltext0
+ 991 008e 00000000 		.secrel32	Ldebug_line0
+ 992 0092 02       		.uleb128 0x2
+ 993 0093 04       		.byte	0x4
+ 994 0094 07       		.byte	0x7
+ 995 0095 756E7369 		.ascii "unsigned int\0"
+ 995      676E6564 
+ 995      20696E74 
+ 995      00
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 30
+
+
+ 996 00a2 02       		.uleb128 0x2
+ 997 00a3 02       		.byte	0x2
+ 998 00a4 07       		.byte	0x7
+ 999 00a5 73686F72 		.ascii "short unsigned int\0"
+ 999      7420756E 
+ 999      7369676E 
+ 999      65642069 
+ 999      6E7400
+ 1000 00b8 02       		.uleb128 0x2
+ 1001 00b9 01       		.byte	0x1
+ 1002 00ba 06       		.byte	0x6
+ 1003 00bb 63686172 		.ascii "char\0"
+ 1003      00
+ 1004 00c0 03       		.uleb128 0x3
+ 1005 00c1 5F696F62 		.ascii "_iobuf\0"
+ 1005      756600
+ 1006 00c8 20       		.byte	0x20
+ 1007 00c9 02       		.byte	0x2
+ 1008 00ca 81       		.byte	0x81
+ 1009 00cb 47010000 		.long	0x147
+ 1010 00cf 04       		.uleb128 0x4
+ 1011 00d0 5F707472 		.ascii "_ptr\0"
+ 1011      00
+ 1012 00d5 02       		.byte	0x2
+ 1013 00d6 83       		.byte	0x83
+ 1014 00d7 47010000 		.long	0x147
+ 1015 00db 00       		.byte	0
+ 1016 00dc 04       		.uleb128 0x4
+ 1017 00dd 5F636E74 		.ascii "_cnt\0"
+ 1017      00
+ 1018 00e2 02       		.byte	0x2
+ 1019 00e3 84       		.byte	0x84
+ 1020 00e4 4D010000 		.long	0x14d
+ 1021 00e8 04       		.byte	0x4
+ 1022 00e9 04       		.uleb128 0x4
+ 1023 00ea 5F626173 		.ascii "_base\0"
+ 1023      6500
+ 1024 00f0 02       		.byte	0x2
+ 1025 00f1 85       		.byte	0x85
+ 1026 00f2 47010000 		.long	0x147
+ 1027 00f6 08       		.byte	0x8
+ 1028 00f7 04       		.uleb128 0x4
+ 1029 00f8 5F666C61 		.ascii "_flag\0"
+ 1029      6700
+ 1030 00fe 02       		.byte	0x2
+ 1031 00ff 86       		.byte	0x86
+ 1032 0100 4D010000 		.long	0x14d
+ 1033 0104 0C       		.byte	0xc
+ 1034 0105 04       		.uleb128 0x4
+ 1035 0106 5F66696C 		.ascii "_file\0"
+ 1035      6500
+ 1036 010c 02       		.byte	0x2
+ 1037 010d 87       		.byte	0x87
+ 1038 010e 4D010000 		.long	0x14d
+ 1039 0112 10       		.byte	0x10
+ 1040 0113 04       		.uleb128 0x4
+ 1041 0114 5F636861 		.ascii "_charbuf\0"
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 31
+
+
+ 1041      72627566 
+ 1041      00
+ 1042 011d 02       		.byte	0x2
+ 1043 011e 88       		.byte	0x88
+ 1044 011f 4D010000 		.long	0x14d
+ 1045 0123 14       		.byte	0x14
+ 1046 0124 04       		.uleb128 0x4
+ 1047 0125 5F627566 		.ascii "_bufsiz\0"
+ 1047      73697A00 
+ 1048 012d 02       		.byte	0x2
+ 1049 012e 89       		.byte	0x89
+ 1050 012f 4D010000 		.long	0x14d
+ 1051 0133 18       		.byte	0x18
+ 1052 0134 04       		.uleb128 0x4
+ 1053 0135 5F746D70 		.ascii "_tmpfname\0"
+ 1053      666E616D 
+ 1053      6500
+ 1054 013f 02       		.byte	0x2
+ 1055 0140 8A       		.byte	0x8a
+ 1056 0141 47010000 		.long	0x147
+ 1057 0145 1C       		.byte	0x1c
+ 1058 0146 00       		.byte	0
+ 1059 0147 05       		.uleb128 0x5
+ 1060 0148 04       		.byte	0x4
+ 1061 0149 B8000000 		.long	0xb8
+ 1062 014d 02       		.uleb128 0x2
+ 1063 014e 04       		.byte	0x4
+ 1064 014f 05       		.byte	0x5
+ 1065 0150 696E7400 		.ascii "int\0"
+ 1066 0154 06       		.uleb128 0x6
+ 1067 0155 46494C45 		.ascii "FILE\0"
+ 1067      00
+ 1068 015a 02       		.byte	0x2
+ 1069 015b 8B       		.byte	0x8b
+ 1070 015c C0000000 		.long	0xc0
+ 1071 0160 02       		.uleb128 0x2
+ 1072 0161 08       		.byte	0x8
+ 1073 0162 05       		.byte	0x5
+ 1074 0163 6C6F6E67 		.ascii "long long int\0"
+ 1074      206C6F6E 
+ 1074      6720696E 
+ 1074      7400
+ 1075 0171 02       		.uleb128 0x2
+ 1076 0172 04       		.byte	0x4
+ 1077 0173 05       		.byte	0x5
+ 1078 0174 6C6F6E67 		.ascii "long int\0"
+ 1078      20696E74 
+ 1078      00
+ 1079 017d 02       		.uleb128 0x2
+ 1080 017e 02       		.byte	0x2
+ 1081 017f 05       		.byte	0x5
+ 1082 0180 73686F72 		.ascii "short int\0"
+ 1082      7420696E 
+ 1082      7400
+ 1083 018a 07       		.uleb128 0x7
+ 1084 018b 6D61696E 		.ascii "main\0"
+ 1084      00
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 32
+
+
+ 1085 0190 01       		.byte	0x1
+ 1086 0191 06       		.byte	0x6
+ 1087 0192 4D010000 		.long	0x14d
+ 1088 0196 00000000 		.long	LFB6
+ 1089 019a 4E040000 		.long	LFE6-LFB6
+ 1090 019e 01       		.uleb128 0x1
+ 1091 019f 9C       		.byte	0x9c
+ 1092 01a0 B5020000 		.long	0x2b5
+ 1093 01a4 08       		.uleb128 0x8
+ 1094 01a5 636800   		.ascii "ch\0"
+ 1095 01a8 01       		.byte	0x1
+ 1096 01a9 09       		.byte	0x9
+ 1097 01aa B8000000 		.long	0xb8
+ 1098 01ae 04       		.uleb128 0x4
+ 1099 01af 74       		.byte	0x74
+ 1100 01b0 D7D600   		.sleb128 11095
+ 1101 01b3 08       		.uleb128 0x8
+ 1102 01b4 636F6E74 		.ascii "content\0"
+ 1102      656E7400 
+ 1103 01bc 01       		.byte	0x1
+ 1104 01bd 09       		.byte	0x9
+ 1105 01be B5020000 		.long	0x2b5
+ 1106 01c2 03       		.uleb128 0x3
+ 1107 01c3 74       		.byte	0x74
+ 1108 01c4 C708     		.sleb128 1095
+ 1109 01c6 08       		.uleb128 0x8
+ 1110 01c7 66696C65 		.ascii "fileaddress\0"
+ 1110      61646472 
+ 1110      65737300 
+ 1111 01d3 01       		.byte	0x1
+ 1112 01d4 09       		.byte	0x9
+ 1113 01d5 D2020000 		.long	0x2d2
+ 1114 01d9 03       		.uleb128 0x3
+ 1115 01da 74       		.byte	0x74
+ 1116 01db AE08     		.sleb128 1070
+ 1117 01dd 08       		.uleb128 0x8
+ 1118 01de 6D6E656D 		.ascii "mnem\0"
+ 1118      00
+ 1119 01e3 01       		.byte	0x1
+ 1120 01e4 0A       		.byte	0xa
+ 1121 01e5 E2020000 		.long	0x2e2
+ 1122 01e9 03       		.uleb128 0x3
+ 1123 01ea 74       		.byte	0x74
+ 1124 01eb A408     		.sleb128 1060
+ 1125 01ed 08       		.uleb128 0x8
+ 1126 01ee 6F703100 		.ascii "op1\0"
+ 1127 01f2 01       		.byte	0x1
+ 1128 01f3 0A       		.byte	0xa
+ 1129 01f4 E2020000 		.long	0x2e2
+ 1130 01f8 03       		.uleb128 0x3
+ 1131 01f9 74       		.byte	0x74
+ 1132 01fa 9A08     		.sleb128 1050
+ 1133 01fc 08       		.uleb128 0x8
+ 1134 01fd 6F703200 		.ascii "op2\0"
+ 1135 0201 01       		.byte	0x1
+ 1136 0202 0A       		.byte	0xa
+ 1137 0203 E2020000 		.long	0x2e2
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 33
+
+
+ 1138 0207 03       		.uleb128 0x3
+ 1139 0208 74       		.byte	0x74
+ 1140 0209 9008     		.sleb128 1040
+ 1141 020b 08       		.uleb128 0x8
+ 1142 020c 6900     		.ascii "i\0"
+ 1143 020e 01       		.byte	0x1
+ 1144 020f 0B       		.byte	0xb
+ 1145 0210 4D010000 		.long	0x14d
+ 1146 0214 04       		.uleb128 0x4
+ 1147 0215 74       		.byte	0x74
+ 1148 0216 ECD600   		.sleb128 11116
+ 1149 0219 08       		.uleb128 0x8
+ 1150 021a 636F756E 		.ascii "counter\0"
+ 1150      74657200 
+ 1151 0222 01       		.byte	0x1
+ 1152 0223 0B       		.byte	0xb
+ 1153 0224 4D010000 		.long	0x14d
+ 1154 0228 04       		.uleb128 0x4
+ 1155 0229 74       		.byte	0x74
+ 1156 022a E8D600   		.sleb128 11112
+ 1157 022d 08       		.uleb128 0x8
+ 1158 022e 6F70636E 		.ascii "opcntr\0"
+ 1158      747200
+ 1159 0235 01       		.byte	0x1
+ 1160 0236 0B       		.byte	0xb
+ 1161 0237 4D010000 		.long	0x14d
+ 1162 023b 04       		.uleb128 0x4
+ 1163 023c 74       		.byte	0x74
+ 1164 023d E4D600   		.sleb128 11108
+ 1165 0240 08       		.uleb128 0x8
+ 1166 0241 73746174 		.ascii "state\0"
+ 1166      6500
+ 1167 0247 01       		.byte	0x1
+ 1168 0248 0B       		.byte	0xb
+ 1169 0249 4D010000 		.long	0x14d
+ 1170 024d 04       		.uleb128 0x4
+ 1171 024e 74       		.byte	0x74
+ 1172 024f E0D600   		.sleb128 11104
+ 1173 0252 09       		.uleb128 0x9
+ 1174 0253 6C6F6F70 		.ascii "loop\0"
+ 1174      00
+ 1175 0258 01       		.byte	0x1
+ 1176 0259 0C       		.byte	0xc
+ 1177 025a 43000000 		.long	L2
+ 1178 025e 0A       		.uleb128 0xa
+ 1179 025f 73747263 		.ascii "strcmp\0"
+ 1179      6D7000
+ 1180 0266 03       		.byte	0x3
+ 1181 0267 00       		.byte	0
+ 1182 0268 4D010000 		.long	0x14d
+ 1183 026c 72020000 		.long	0x272
+ 1184 0270 0B       		.uleb128 0xb
+ 1185 0271 00       		.byte	0
+ 1186 0272 08       		.uleb128 0x8
+ 1187 0273 70747246 		.ascii "ptrFile\0"
+ 1187      696C6500 
+ 1188 027b 01       		.byte	0x1
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 34
+
+
+ 1189 027c 14       		.byte	0x14
+ 1190 027d F2020000 		.long	0x2f2
+ 1191 0281 04       		.uleb128 0x4
+ 1192 0282 74       		.byte	0x74
+ 1193 0283 DCD600   		.sleb128 11100
+ 1194 0286 0C       		.uleb128 0xc
+ 1195 0287 00000000 		.secrel32	LASF0
+ 1196 028b 01       		.byte	0x1
+ 1197 028c 15       		.byte	0x15
+ 1198 028d F2020000 		.long	0x2f2
+ 1199 0291 04       		.uleb128 0x4
+ 1200 0292 74       		.byte	0x74
+ 1201 0293 D8D600   		.sleb128 11096
+ 1202 0296 08       		.uleb128 0x8
+ 1203 0297 63776400 		.ascii "cwd\0"
+ 1204 029b 01       		.byte	0x1
+ 1205 029c 6A       		.byte	0x6a
+ 1206 029d F8020000 		.long	0x2f8
+ 1207 02a1 02       		.uleb128 0x2
+ 1208 02a2 74       		.byte	0x74
+ 1209 02a3 10       		.sleb128 16
+ 1210 02a4 0D       		.uleb128 0xd
+ 1211 02a5 67657463 		.ascii "getcwd\0"
+ 1211      776400
+ 1212 02ac 01       		.byte	0x1
+ 1213 02ad 6B       		.byte	0x6b
+ 1214 02ae 4D010000 		.long	0x14d
+ 1215 02b2 0B       		.uleb128 0xb
+ 1216 02b3 00       		.byte	0
+ 1217 02b4 00       		.byte	0
+ 1218 02b5 0E       		.uleb128 0xe
+ 1219 02b6 B8000000 		.long	0xb8
+ 1220 02ba C6020000 		.long	0x2c6
+ 1221 02be 0F       		.uleb128 0xf
+ 1222 02bf C6020000 		.long	0x2c6
+ 1223 02c3 0F27     		.word	0x270f
+ 1224 02c5 00       		.byte	0
+ 1225 02c6 02       		.uleb128 0x2
+ 1226 02c7 04       		.byte	0x4
+ 1227 02c8 07       		.byte	0x7
+ 1228 02c9 73697A65 		.ascii "sizetype\0"
+ 1228      74797065 
+ 1228      00
+ 1229 02d2 0E       		.uleb128 0xe
+ 1230 02d3 B8000000 		.long	0xb8
+ 1231 02d7 E2020000 		.long	0x2e2
+ 1232 02db 10       		.uleb128 0x10
+ 1233 02dc C6020000 		.long	0x2c6
+ 1234 02e0 18       		.byte	0x18
+ 1235 02e1 00       		.byte	0
+ 1236 02e2 0E       		.uleb128 0xe
+ 1237 02e3 B8000000 		.long	0xb8
+ 1238 02e7 F2020000 		.long	0x2f2
+ 1239 02eb 10       		.uleb128 0x10
+ 1240 02ec C6020000 		.long	0x2c6
+ 1241 02f0 09       		.byte	0x9
+ 1242 02f1 00       		.byte	0
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 35
+
+
+ 1243 02f2 05       		.uleb128 0x5
+ 1244 02f3 04       		.byte	0x4
+ 1245 02f4 54010000 		.long	0x154
+ 1246 02f8 0E       		.uleb128 0xe
+ 1247 02f9 B8000000 		.long	0xb8
+ 1248 02fd 09030000 		.long	0x309
+ 1249 0301 0F       		.uleb128 0xf
+ 1250 0302 C6020000 		.long	0x2c6
+ 1251 0306 FF03     		.word	0x3ff
+ 1252 0308 00       		.byte	0
+ 1253 0309 11       		.uleb128 0x11
+ 1254 030a 66696E64 		.ascii "findHex\0"
+ 1254      48657800 
+ 1255 0312 01       		.byte	0x1
+ 1256 0313 70       		.byte	0x70
+ 1257 0314 4E040000 		.long	LFB7
+ 1258 0318 AC060000 		.long	LFE7-LFB7
+ 1259 031c 01       		.uleb128 0x1
+ 1260 031d 9C       		.byte	0x9c
+ 1261 031e 7A030000 		.long	0x37a
+ 1262 0322 12       		.uleb128 0x12
+ 1263 0323 6D6E656D 		.ascii "mnemonic\0"
+ 1263      6F6E6963 
+ 1263      00
+ 1264 032c 01       		.byte	0x1
+ 1265 032d 70       		.byte	0x70
+ 1266 032e 47010000 		.long	0x147
+ 1267 0332 02       		.uleb128 0x2
+ 1268 0333 91       		.byte	0x91
+ 1269 0334 00       		.sleb128 0
+ 1270 0335 12       		.uleb128 0x12
+ 1271 0336 6F706572 		.ascii "operand1\0"
+ 1271      616E6431 
+ 1271      00
+ 1272 033f 01       		.byte	0x1
+ 1273 0340 70       		.byte	0x70
+ 1274 0341 47010000 		.long	0x147
+ 1275 0345 02       		.uleb128 0x2
+ 1276 0346 91       		.byte	0x91
+ 1277 0347 04       		.sleb128 4
+ 1278 0348 12       		.uleb128 0x12
+ 1279 0349 6F706572 		.ascii "operand2\0"
+ 1279      616E6432 
+ 1279      00
+ 1280 0352 01       		.byte	0x1
+ 1281 0353 70       		.byte	0x70
+ 1282 0354 47010000 		.long	0x147
+ 1283 0358 02       		.uleb128 0x2
+ 1284 0359 91       		.byte	0x91
+ 1285 035a 08       		.sleb128 8
+ 1286 035b 13       		.uleb128 0x13
+ 1287 035c 00000000 		.secrel32	LASF0
+ 1288 0360 01       		.byte	0x1
+ 1289 0361 70       		.byte	0x70
+ 1290 0362 F2020000 		.long	0x2f2
+ 1291 0366 02       		.uleb128 0x2
+ 1292 0367 91       		.byte	0x91
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 36
+
+
+ 1293 0368 0C       		.sleb128 12
+ 1294 0369 0D       		.uleb128 0xd
+ 1295 036a 73747263 		.ascii "strcmp\0"
+ 1295      6D7000
+ 1296 0371 03       		.byte	0x3
+ 1297 0372 00       		.byte	0
+ 1298 0373 4D010000 		.long	0x14d
+ 1299 0377 0B       		.uleb128 0xb
+ 1300 0378 00       		.byte	0
+ 1301 0379 00       		.byte	0
+ 1302 037a 0E       		.uleb128 0xe
+ 1303 037b 54010000 		.long	0x154
+ 1304 037f 85030000 		.long	0x385
+ 1305 0383 14       		.uleb128 0x14
+ 1306 0384 00       		.byte	0
+ 1307 0385 15       		.uleb128 0x15
+ 1308 0386 5F696F62 		.ascii "_iob\0"
+ 1308      00
+ 1309 038b 02       		.byte	0x2
+ 1310 038c 9A       		.byte	0x9a
+ 1311 038d 7A030000 		.long	0x37a
+ 1312 0391 00       		.byte	0
+ 1313              		.section	.debug_abbrev,"dr"
+ 1314              	Ldebug_abbrev0:
+ 1315 0000 01       		.uleb128 0x1
+ 1316 0001 11       		.uleb128 0x11
+ 1317 0002 01       		.byte	0x1
+ 1318 0003 25       		.uleb128 0x25
+ 1319 0004 08       		.uleb128 0x8
+ 1320 0005 13       		.uleb128 0x13
+ 1321 0006 0B       		.uleb128 0xb
+ 1322 0007 03       		.uleb128 0x3
+ 1323 0008 08       		.uleb128 0x8
+ 1324 0009 1B       		.uleb128 0x1b
+ 1325 000a 08       		.uleb128 0x8
+ 1326 000b 11       		.uleb128 0x11
+ 1327 000c 01       		.uleb128 0x1
+ 1328 000d 12       		.uleb128 0x12
+ 1329 000e 06       		.uleb128 0x6
+ 1330 000f 10       		.uleb128 0x10
+ 1331 0010 17       		.uleb128 0x17
+ 1332 0011 00       		.byte	0
+ 1333 0012 00       		.byte	0
+ 1334 0013 02       		.uleb128 0x2
+ 1335 0014 24       		.uleb128 0x24
+ 1336 0015 00       		.byte	0
+ 1337 0016 0B       		.uleb128 0xb
+ 1338 0017 0B       		.uleb128 0xb
+ 1339 0018 3E       		.uleb128 0x3e
+ 1340 0019 0B       		.uleb128 0xb
+ 1341 001a 03       		.uleb128 0x3
+ 1342 001b 08       		.uleb128 0x8
+ 1343 001c 00       		.byte	0
+ 1344 001d 00       		.byte	0
+ 1345 001e 03       		.uleb128 0x3
+ 1346 001f 13       		.uleb128 0x13
+ 1347 0020 01       		.byte	0x1
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 37
+
+
+ 1348 0021 03       		.uleb128 0x3
+ 1349 0022 08       		.uleb128 0x8
+ 1350 0023 0B       		.uleb128 0xb
+ 1351 0024 0B       		.uleb128 0xb
+ 1352 0025 3A       		.uleb128 0x3a
+ 1353 0026 0B       		.uleb128 0xb
+ 1354 0027 3B       		.uleb128 0x3b
+ 1355 0028 0B       		.uleb128 0xb
+ 1356 0029 01       		.uleb128 0x1
+ 1357 002a 13       		.uleb128 0x13
+ 1358 002b 00       		.byte	0
+ 1359 002c 00       		.byte	0
+ 1360 002d 04       		.uleb128 0x4
+ 1361 002e 0D       		.uleb128 0xd
+ 1362 002f 00       		.byte	0
+ 1363 0030 03       		.uleb128 0x3
+ 1364 0031 08       		.uleb128 0x8
+ 1365 0032 3A       		.uleb128 0x3a
+ 1366 0033 0B       		.uleb128 0xb
+ 1367 0034 3B       		.uleb128 0x3b
+ 1368 0035 0B       		.uleb128 0xb
+ 1369 0036 49       		.uleb128 0x49
+ 1370 0037 13       		.uleb128 0x13
+ 1371 0038 38       		.uleb128 0x38
+ 1372 0039 0B       		.uleb128 0xb
+ 1373 003a 00       		.byte	0
+ 1374 003b 00       		.byte	0
+ 1375 003c 05       		.uleb128 0x5
+ 1376 003d 0F       		.uleb128 0xf
+ 1377 003e 00       		.byte	0
+ 1378 003f 0B       		.uleb128 0xb
+ 1379 0040 0B       		.uleb128 0xb
+ 1380 0041 49       		.uleb128 0x49
+ 1381 0042 13       		.uleb128 0x13
+ 1382 0043 00       		.byte	0
+ 1383 0044 00       		.byte	0
+ 1384 0045 06       		.uleb128 0x6
+ 1385 0046 16       		.uleb128 0x16
+ 1386 0047 00       		.byte	0
+ 1387 0048 03       		.uleb128 0x3
+ 1388 0049 08       		.uleb128 0x8
+ 1389 004a 3A       		.uleb128 0x3a
+ 1390 004b 0B       		.uleb128 0xb
+ 1391 004c 3B       		.uleb128 0x3b
+ 1392 004d 0B       		.uleb128 0xb
+ 1393 004e 49       		.uleb128 0x49
+ 1394 004f 13       		.uleb128 0x13
+ 1395 0050 00       		.byte	0
+ 1396 0051 00       		.byte	0
+ 1397 0052 07       		.uleb128 0x7
+ 1398 0053 2E       		.uleb128 0x2e
+ 1399 0054 01       		.byte	0x1
+ 1400 0055 3F       		.uleb128 0x3f
+ 1401 0056 19       		.uleb128 0x19
+ 1402 0057 03       		.uleb128 0x3
+ 1403 0058 08       		.uleb128 0x8
+ 1404 0059 3A       		.uleb128 0x3a
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 38
+
+
+ 1405 005a 0B       		.uleb128 0xb
+ 1406 005b 3B       		.uleb128 0x3b
+ 1407 005c 0B       		.uleb128 0xb
+ 1408 005d 49       		.uleb128 0x49
+ 1409 005e 13       		.uleb128 0x13
+ 1410 005f 11       		.uleb128 0x11
+ 1411 0060 01       		.uleb128 0x1
+ 1412 0061 12       		.uleb128 0x12
+ 1413 0062 06       		.uleb128 0x6
+ 1414 0063 40       		.uleb128 0x40
+ 1415 0064 18       		.uleb128 0x18
+ 1416 0065 9642     		.uleb128 0x2116
+ 1417 0067 19       		.uleb128 0x19
+ 1418 0068 01       		.uleb128 0x1
+ 1419 0069 13       		.uleb128 0x13
+ 1420 006a 00       		.byte	0
+ 1421 006b 00       		.byte	0
+ 1422 006c 08       		.uleb128 0x8
+ 1423 006d 34       		.uleb128 0x34
+ 1424 006e 00       		.byte	0
+ 1425 006f 03       		.uleb128 0x3
+ 1426 0070 08       		.uleb128 0x8
+ 1427 0071 3A       		.uleb128 0x3a
+ 1428 0072 0B       		.uleb128 0xb
+ 1429 0073 3B       		.uleb128 0x3b
+ 1430 0074 0B       		.uleb128 0xb
+ 1431 0075 49       		.uleb128 0x49
+ 1432 0076 13       		.uleb128 0x13
+ 1433 0077 02       		.uleb128 0x2
+ 1434 0078 18       		.uleb128 0x18
+ 1435 0079 00       		.byte	0
+ 1436 007a 00       		.byte	0
+ 1437 007b 09       		.uleb128 0x9
+ 1438 007c 0A       		.uleb128 0xa
+ 1439 007d 00       		.byte	0
+ 1440 007e 03       		.uleb128 0x3
+ 1441 007f 08       		.uleb128 0x8
+ 1442 0080 3A       		.uleb128 0x3a
+ 1443 0081 0B       		.uleb128 0xb
+ 1444 0082 3B       		.uleb128 0x3b
+ 1445 0083 0B       		.uleb128 0xb
+ 1446 0084 11       		.uleb128 0x11
+ 1447 0085 01       		.uleb128 0x1
+ 1448 0086 00       		.byte	0
+ 1449 0087 00       		.byte	0
+ 1450 0088 0A       		.uleb128 0xa
+ 1451 0089 2E       		.uleb128 0x2e
+ 1452 008a 01       		.byte	0x1
+ 1453 008b 3F       		.uleb128 0x3f
+ 1454 008c 19       		.uleb128 0x19
+ 1455 008d 03       		.uleb128 0x3
+ 1456 008e 08       		.uleb128 0x8
+ 1457 008f 3A       		.uleb128 0x3a
+ 1458 0090 0B       		.uleb128 0xb
+ 1459 0091 3B       		.uleb128 0x3b
+ 1460 0092 0B       		.uleb128 0xb
+ 1461 0093 49       		.uleb128 0x49
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 39
+
+
+ 1462 0094 13       		.uleb128 0x13
+ 1463 0095 3C       		.uleb128 0x3c
+ 1464 0096 19       		.uleb128 0x19
+ 1465 0097 01       		.uleb128 0x1
+ 1466 0098 13       		.uleb128 0x13
+ 1467 0099 00       		.byte	0
+ 1468 009a 00       		.byte	0
+ 1469 009b 0B       		.uleb128 0xb
+ 1470 009c 18       		.uleb128 0x18
+ 1471 009d 00       		.byte	0
+ 1472 009e 00       		.byte	0
+ 1473 009f 00       		.byte	0
+ 1474 00a0 0C       		.uleb128 0xc
+ 1475 00a1 34       		.uleb128 0x34
+ 1476 00a2 00       		.byte	0
+ 1477 00a3 03       		.uleb128 0x3
+ 1478 00a4 0E       		.uleb128 0xe
+ 1479 00a5 3A       		.uleb128 0x3a
+ 1480 00a6 0B       		.uleb128 0xb
+ 1481 00a7 3B       		.uleb128 0x3b
+ 1482 00a8 0B       		.uleb128 0xb
+ 1483 00a9 49       		.uleb128 0x49
+ 1484 00aa 13       		.uleb128 0x13
+ 1485 00ab 02       		.uleb128 0x2
+ 1486 00ac 18       		.uleb128 0x18
+ 1487 00ad 00       		.byte	0
+ 1488 00ae 00       		.byte	0
+ 1489 00af 0D       		.uleb128 0xd
+ 1490 00b0 2E       		.uleb128 0x2e
+ 1491 00b1 01       		.byte	0x1
+ 1492 00b2 3F       		.uleb128 0x3f
+ 1493 00b3 19       		.uleb128 0x19
+ 1494 00b4 03       		.uleb128 0x3
+ 1495 00b5 08       		.uleb128 0x8
+ 1496 00b6 3A       		.uleb128 0x3a
+ 1497 00b7 0B       		.uleb128 0xb
+ 1498 00b8 3B       		.uleb128 0x3b
+ 1499 00b9 0B       		.uleb128 0xb
+ 1500 00ba 49       		.uleb128 0x49
+ 1501 00bb 13       		.uleb128 0x13
+ 1502 00bc 3C       		.uleb128 0x3c
+ 1503 00bd 19       		.uleb128 0x19
+ 1504 00be 00       		.byte	0
+ 1505 00bf 00       		.byte	0
+ 1506 00c0 0E       		.uleb128 0xe
+ 1507 00c1 01       		.uleb128 0x1
+ 1508 00c2 01       		.byte	0x1
+ 1509 00c3 49       		.uleb128 0x49
+ 1510 00c4 13       		.uleb128 0x13
+ 1511 00c5 01       		.uleb128 0x1
+ 1512 00c6 13       		.uleb128 0x13
+ 1513 00c7 00       		.byte	0
+ 1514 00c8 00       		.byte	0
+ 1515 00c9 0F       		.uleb128 0xf
+ 1516 00ca 21       		.uleb128 0x21
+ 1517 00cb 00       		.byte	0
+ 1518 00cc 49       		.uleb128 0x49
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 40
+
+
+ 1519 00cd 13       		.uleb128 0x13
+ 1520 00ce 2F       		.uleb128 0x2f
+ 1521 00cf 05       		.uleb128 0x5
+ 1522 00d0 00       		.byte	0
+ 1523 00d1 00       		.byte	0
+ 1524 00d2 10       		.uleb128 0x10
+ 1525 00d3 21       		.uleb128 0x21
+ 1526 00d4 00       		.byte	0
+ 1527 00d5 49       		.uleb128 0x49
+ 1528 00d6 13       		.uleb128 0x13
+ 1529 00d7 2F       		.uleb128 0x2f
+ 1530 00d8 0B       		.uleb128 0xb
+ 1531 00d9 00       		.byte	0
+ 1532 00da 00       		.byte	0
+ 1533 00db 11       		.uleb128 0x11
+ 1534 00dc 2E       		.uleb128 0x2e
+ 1535 00dd 01       		.byte	0x1
+ 1536 00de 3F       		.uleb128 0x3f
+ 1537 00df 19       		.uleb128 0x19
+ 1538 00e0 03       		.uleb128 0x3
+ 1539 00e1 08       		.uleb128 0x8
+ 1540 00e2 3A       		.uleb128 0x3a
+ 1541 00e3 0B       		.uleb128 0xb
+ 1542 00e4 3B       		.uleb128 0x3b
+ 1543 00e5 0B       		.uleb128 0xb
+ 1544 00e6 27       		.uleb128 0x27
+ 1545 00e7 19       		.uleb128 0x19
+ 1546 00e8 11       		.uleb128 0x11
+ 1547 00e9 01       		.uleb128 0x1
+ 1548 00ea 12       		.uleb128 0x12
+ 1549 00eb 06       		.uleb128 0x6
+ 1550 00ec 40       		.uleb128 0x40
+ 1551 00ed 18       		.uleb128 0x18
+ 1552 00ee 9642     		.uleb128 0x2116
+ 1553 00f0 19       		.uleb128 0x19
+ 1554 00f1 01       		.uleb128 0x1
+ 1555 00f2 13       		.uleb128 0x13
+ 1556 00f3 00       		.byte	0
+ 1557 00f4 00       		.byte	0
+ 1558 00f5 12       		.uleb128 0x12
+ 1559 00f6 05       		.uleb128 0x5
+ 1560 00f7 00       		.byte	0
+ 1561 00f8 03       		.uleb128 0x3
+ 1562 00f9 08       		.uleb128 0x8
+ 1563 00fa 3A       		.uleb128 0x3a
+ 1564 00fb 0B       		.uleb128 0xb
+ 1565 00fc 3B       		.uleb128 0x3b
+ 1566 00fd 0B       		.uleb128 0xb
+ 1567 00fe 49       		.uleb128 0x49
+ 1568 00ff 13       		.uleb128 0x13
+ 1569 0100 02       		.uleb128 0x2
+ 1570 0101 18       		.uleb128 0x18
+ 1571 0102 00       		.byte	0
+ 1572 0103 00       		.byte	0
+ 1573 0104 13       		.uleb128 0x13
+ 1574 0105 05       		.uleb128 0x5
+ 1575 0106 00       		.byte	0
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 41
+
+
+ 1576 0107 03       		.uleb128 0x3
+ 1577 0108 0E       		.uleb128 0xe
+ 1578 0109 3A       		.uleb128 0x3a
+ 1579 010a 0B       		.uleb128 0xb
+ 1580 010b 3B       		.uleb128 0x3b
+ 1581 010c 0B       		.uleb128 0xb
+ 1582 010d 49       		.uleb128 0x49
+ 1583 010e 13       		.uleb128 0x13
+ 1584 010f 02       		.uleb128 0x2
+ 1585 0110 18       		.uleb128 0x18
+ 1586 0111 00       		.byte	0
+ 1587 0112 00       		.byte	0
+ 1588 0113 14       		.uleb128 0x14
+ 1589 0114 21       		.uleb128 0x21
+ 1590 0115 00       		.byte	0
+ 1591 0116 00       		.byte	0
+ 1592 0117 00       		.byte	0
+ 1593 0118 15       		.uleb128 0x15
+ 1594 0119 34       		.uleb128 0x34
+ 1595 011a 00       		.byte	0
+ 1596 011b 03       		.uleb128 0x3
+ 1597 011c 08       		.uleb128 0x8
+ 1598 011d 3A       		.uleb128 0x3a
+ 1599 011e 0B       		.uleb128 0xb
+ 1600 011f 3B       		.uleb128 0x3b
+ 1601 0120 0B       		.uleb128 0xb
+ 1602 0121 49       		.uleb128 0x49
+ 1603 0122 13       		.uleb128 0x13
+ 1604 0123 3F       		.uleb128 0x3f
+ 1605 0124 19       		.uleb128 0x19
+ 1606 0125 3C       		.uleb128 0x3c
+ 1607 0126 19       		.uleb128 0x19
+ 1608 0127 00       		.byte	0
+ 1609 0128 00       		.byte	0
+ 1610 0129 00       		.byte	0
+ 1611              		.section	.debug_aranges,"dr"
+ 1612 0000 1C000000 		.long	0x1c
+ 1613 0004 0200     		.word	0x2
+ 1614 0006 00000000 		.secrel32	Ldebug_info0
+ 1615 000a 04       		.byte	0x4
+ 1616 000b 00       		.byte	0
+ 1617 000c 0000     		.word	0
+ 1618 000e 0000     		.word	0
+ 1619 0010 00000000 		.long	Ltext0
+ 1620 0014 FA0A0000 		.long	Letext0-Ltext0
+ 1621 0018 00000000 		.long	0
+ 1622 001c 00000000 		.long	0
+ 1623              		.section	.debug_line,"dr"
+ 1624              	Ldebug_line0:
+ 1625 0000 AC010000 		.section	.debug_str,"dr"
+ 1625      02008700 
+ 1625      00000101 
+ 1625      FB0E0D00 
+ 1625      01010101 
+ 1626              	LASF0:
+ 1627 0000 7074724F 		.ascii "ptrOFile\0"
+ 1627      46696C65 
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 42
+
+
+ 1627      00
+ 1628              		.ident	"GCC: (tdm-2) 4.8.1"
+GAS LISTING C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s 			page 43
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s:39     .text:00000000 _main
+C:\Users\Nerox\AppData\Local\Temp\cc0FzH6d.s:446    .text:0000044e _findHex
+
+UNDEFINED SYMBOLS
+___main
+___chkstk_ms
+_puts
+_scanf
+_putchar
+_strcmp
+_fopen
+_perror
+_exit
+_fgetc
+_fwrite
+_printf
+_fclose
+_getcwd
+_fprintf

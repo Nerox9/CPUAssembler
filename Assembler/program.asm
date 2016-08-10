@@ -1,0 +1,5 @@
+MOV A,12
+MOV B,23
+ADD A,B
+OUT 3
+JMP 0
